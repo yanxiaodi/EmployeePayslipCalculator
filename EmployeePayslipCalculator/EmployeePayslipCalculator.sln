@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EmployeePayslipCalculator.WebApp", "EmployeePayslipCalculator.WebApp\", "{29029CB8-1AF9-4140-8683-C98F5F7C615E}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -24,11 +24,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EmployeePayslipCalculator.W
 		SlnRelativePath = "EmployeePayslipCalculator.WebApp\"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayslipCalculator.WebApi", "EmployeePayslipCalculator.WebApi\EmployeePayslipCalculator.WebApi.csproj", "{667B6CE2-5442-43E8-BF4D-29021BB161B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.WebApi", "EmployeePayslipCalculator.WebApi\EmployeePayslipCalculator.WebApi.csproj", "{667B6CE2-5442-43E8-BF4D-29021BB161B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayslipCalculator.Models", "EmployeePayslipCalculator.Models\EmployeePayslipCalculator.Models.csproj", "{34D2907C-FF83-4DF7-A077-83244EFE0CF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.Models", "EmployeePayslipCalculator.Models\EmployeePayslipCalculator.Models.csproj", "{34D2907C-FF83-4DF7-A077-83244EFE0CF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayslipCalculator.Service", "EmployeePayslipCalculator.Service\EmployeePayslipCalculator.Service.csproj", "{DC804837-729B-4A27-AD0A-EBC5FE0712E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.Service", "EmployeePayslipCalculator.Service\EmployeePayslipCalculator.Service.csproj", "{DC804837-729B-4A27-AD0A-EBC5FE0712E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
