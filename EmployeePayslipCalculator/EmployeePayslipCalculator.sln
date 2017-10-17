@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayslipCalculator.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayslipCalculator.Models", "EmployeePayslipCalculator.Models\EmployeePayslipCalculator.Models.csproj", "{34D2907C-FF83-4DF7-A077-83244EFE0CF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayslipCalculator.Service", "EmployeePayslipCalculator.Service\EmployeePayslipCalculator.Service.csproj", "{DC804837-729B-4A27-AD0A-EBC5FE0712E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{34D2907C-FF83-4DF7-A077-83244EFE0CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34D2907C-FF83-4DF7-A077-83244EFE0CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34D2907C-FF83-4DF7-A077-83244EFE0CF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC804837-729B-4A27-AD0A-EBC5FE0712E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC804837-729B-4A27-AD0A-EBC5FE0712E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC804837-729B-4A27-AD0A-EBC5FE0712E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC804837-729B-4A27-AD0A-EBC5FE0712E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

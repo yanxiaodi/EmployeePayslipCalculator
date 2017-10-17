@@ -1,0 +1,11 @@
+E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.Service\bin\Debug\netstandard2.0\EmployeePayslipCalculator.Service.deps.json
+E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.Service\bin\Debug\netstandard2.0\EmployeePayslipCalculator.Service.dll
+E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.Service\bin\Debug\netstandard2.0\EmployeePayslipCalculator.Service.pdb
+E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.Service\bin\Debug\netstandard2.0\EmployeePayslipCalculator.Models.dll
+E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.Service\bin\Debug\netstandard2.0\EmployeePayslipCalculator.Models.pdb
+E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.Service\obj\Debug\netstandard2.0\EmployeePayslipCalculator.Service.csprojResolveAssemblyReference.cache
+E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.Service\obj\Debug\netstandard2.0\EmployeePayslipCalculator.Service.csproj.CoreCompileInputs.cache
+E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.Service\obj\Debug\netstandard2.0\EmployeePayslipCalculator.Service.AssemblyInfoInputs.cache
+E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.Service\obj\Debug\netstandard2.0\EmployeePayslipCalculator.Service.AssemblyInfo.cs
+E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.Service\obj\Debug\netstandard2.0\EmployeePayslipCalculator.Service.dll
+E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.Service\obj\Debug\netstandard2.0\EmployeePayslipCalculator.Service.pdb
