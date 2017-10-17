@@ -4746,6 +4746,16 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
+      },
+      "EmployeePayslipCalculator.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/EmployeePayslipCalculator.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EmployeePayslipCalculator.Models.dll": {}
+        }
       }
     }
   },
@@ -12524,10 +12534,16 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "EmployeePayslipCalculator.Models/1.0.0": {
+      "type": "project",
+      "path": "../EmployeePayslipCalculator.Models/EmployeePayslipCalculator.Models.csproj",
+      "msbuildProject": "../EmployeePayslipCalculator.Models/EmployeePayslipCalculator.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "EmployeePayslipCalculator.Models >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
@@ -12564,7 +12580,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\source\\repos\\yxd\\EmployeePayslipCalculator\\EmployeePayslipCalculator\\EmployeePayslipCalculator.Models\\EmployeePayslipCalculator.Models.csproj": {
+              "projectPath": "E:\\source\\repos\\yxd\\EmployeePayslipCalculator\\EmployeePayslipCalculator\\EmployeePayslipCalculator.Models\\EmployeePayslipCalculator.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

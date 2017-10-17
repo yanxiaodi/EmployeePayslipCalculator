@@ -26,6 +26,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EmployeePayslipCalculator.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayslipCalculator.WebApi", "EmployeePayslipCalculator.WebApi\EmployeePayslipCalculator.WebApi.csproj", "{667B6CE2-5442-43E8-BF4D-29021BB161B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayslipCalculator.Models", "EmployeePayslipCalculator.Models\EmployeePayslipCalculator.Models.csproj", "{34D2907C-FF83-4DF7-A077-83244EFE0CF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{667B6CE2-5442-43E8-BF4D-29021BB161B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{667B6CE2-5442-43E8-BF4D-29021BB161B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{667B6CE2-5442-43E8-BF4D-29021BB161B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34D2907C-FF83-4DF7-A077-83244EFE0CF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D2907C-FF83-4DF7-A077-83244EFE0CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D2907C-FF83-4DF7-A077-83244EFE0CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D2907C-FF83-4DF7-A077-83244EFE0CF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
