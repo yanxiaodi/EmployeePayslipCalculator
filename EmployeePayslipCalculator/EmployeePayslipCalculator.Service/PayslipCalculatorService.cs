@@ -1,6 +1,7 @@
 ﻿using System;
 using EmployeePayslipCalculator.Models;
 using System.Globalization;
+using System.Collections.Generic;
 
 namespace EmployeePayslipCalculator.Service
 {
@@ -10,10 +11,7 @@ namespace EmployeePayslipCalculator.Service
         {
             PayslipInfo result = new PayslipInfo();
             result.Employee = employee;
-            result.EmployeeId = employee.Id;
             result.PayPeriod = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month);
-            // Just for mock.
-            result.Id = Guid.NewGuid().ToString();
             result.GrossIncome = Utils.ConvertToInt(employee.AnnualSalary / 12);
             result.IncomeTax = TaxCalculatorFactory.Instance.CreateTaxCalculator(employee).CalculateTax();
             result.NetIncome = result.GrossIncome - result.IncomeTax;
@@ -21,6 +19,20 @@ namespace EmployeePayslipCalculator.Service
             return result;
         }
 
-        
+        public List<PayslipInfo> Calculate(List<EmployeeInfo> employees, int month)
+        {
+            List<PayslipInfo> result = new List<PayslipInfo>();
+            employees.ForEach(x =>
+            {
+                var y = this.Calculate(x, month);
+                result.Add(y);
+            });
+            return result;
+        }
+
+
+
+
+
     }
 }

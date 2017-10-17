@@ -36,7 +36,10 @@ namespace EmployeePayslipCalculator.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("default", "{controller}/{action}/{id?}");
+            });
         }
     }
 }

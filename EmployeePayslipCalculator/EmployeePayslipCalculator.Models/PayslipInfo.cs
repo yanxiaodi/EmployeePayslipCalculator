@@ -6,9 +6,7 @@ namespace EmployeePayslipCalculator.Models
 {
     public class PayslipInfo
     {
-        public string Id { get; set; }
-        public string EmployeeId { get; set; }
-        public virtual EmployeeInfo Employee { get; set; }
+        public EmployeeInfo Employee { get; set; }
         public string PayPeriod { get; set; }
         public int GrossIncome { get; set; }
         public int IncomeTax { get; set; }
