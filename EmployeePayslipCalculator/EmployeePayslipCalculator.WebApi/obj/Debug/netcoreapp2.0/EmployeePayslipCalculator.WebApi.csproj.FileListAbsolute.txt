@@ -9,3 +9,7 @@ E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Employee
 E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.WebApi\obj\Debug\netcoreapp2.0\EmployeePayslipCalculator.WebApi.AssemblyInfo.cs
 E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.WebApi\obj\Debug\netcoreapp2.0\EmployeePayslipCalculator.WebApi.dll
 E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.WebApi\obj\Debug\netcoreapp2.0\EmployeePayslipCalculator.WebApi.pdb
+e:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.WebApi\bin\Debug\netcoreapp2.0\EmployeePayslipCalculator.Models.dll
+e:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.WebApi\bin\Debug\netcoreapp2.0\EmployeePayslipCalculator.Models.pdb
+e:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.WebApi\bin\Debug\netcoreapp2.0\EmployeePayslipCalculator.Service.dll
+e:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\EmployeePayslipCalculator.WebApi\bin\Debug\netcoreapp2.0\EmployeePayslipCalculator.Service.pdb

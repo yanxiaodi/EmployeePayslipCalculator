@@ -34,11 +34,11 @@
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
+        "Microsoft.NETCore.Platforms.1.1.0.nupkg.sha512",
+        "Microsoft.NETCore.Platforms.nuspec",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-        "microsoft.netcore.platforms.nuspec",
         "runtime.json"
       ]
     },
@@ -177,7 +177,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\YXD-PC\\.nuget\\packages\\": {},
+    "C:\\Users\\yxd\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -186,17 +186,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "E:\\source\\repos\\yxd\\EmployeePayslipCalculator\\EmployeePayslipCalculator\\EmployeePayslipCalculator.Models\\EmployeePayslipCalculator.Models.csproj",
+      "projectUniqueName": "e:\\Source\\Repos\\yxd\\EmployeePayslipCalculator\\EmployeePayslipCalculator\\EmployeePayslipCalculator.Models\\EmployeePayslipCalculator.Models.csproj",
       "projectName": "EmployeePayslipCalculator.Models",
-      "projectPath": "E:\\source\\repos\\yxd\\EmployeePayslipCalculator\\EmployeePayslipCalculator\\EmployeePayslipCalculator.Models\\EmployeePayslipCalculator.Models.csproj",
-      "packagesPath": "C:\\Users\\YXD-PC\\.nuget\\packages\\",
-      "outputPath": "E:\\source\\repos\\yxd\\EmployeePayslipCalculator\\EmployeePayslipCalculator\\EmployeePayslipCalculator.Models\\obj\\",
+      "projectPath": "e:\\Source\\Repos\\yxd\\EmployeePayslipCalculator\\EmployeePayslipCalculator\\EmployeePayslipCalculator.Models\\EmployeePayslipCalculator.Models.csproj",
+      "packagesPath": "C:\\Users\\yxd\\.nuget\\packages\\",
+      "outputPath": "e:\\Source\\Repos\\yxd\\EmployeePayslipCalculator\\EmployeePayslipCalculator\\EmployeePayslipCalculator.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\YXD-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yxd\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -204,7 +204,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/aspnet-contrib/api/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {

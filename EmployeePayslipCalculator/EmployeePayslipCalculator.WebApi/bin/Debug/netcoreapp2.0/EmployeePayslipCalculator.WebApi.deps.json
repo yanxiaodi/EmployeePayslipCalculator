@@ -23,6 +23,8 @@
     ".NETCoreApp,Version=v2.0": {
       "EmployeePayslipCalculator.WebApi/1.0.0": {
         "dependencies": {
+          "EmployeePayslipCalculator.Models": "1.0.0",
+          "EmployeePayslipCalculator.Service": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.0",
           "Microsoft.NETCore.App": "2.0.0"
         },
@@ -3794,6 +3796,25 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
+      "EmployeePayslipCalculator.Models/1.0.0": {
+        "runtime": {
+          "EmployeePayslipCalculator.Models.dll": {}
+        },
+        "compile": {
+          "EmployeePayslipCalculator.Models.dll": {}
+        }
+      },
+      "EmployeePayslipCalculator.Service/1.0.0": {
+        "dependencies": {
+          "EmployeePayslipCalculator.Models": "1.0.0"
+        },
+        "runtime": {
+          "EmployeePayslipCalculator.Service.dll": {}
+        },
+        "compile": {
+          "EmployeePayslipCalculator.Service.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.0.0": {
         "dependencies": {
           "Microsoft.NETCore.DotNetHostPolicy": "2.0.0",
@@ -4604,7 +4625,7 @@
     "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
+      "sha512": "sha512-oQzrJUO/kxzyCK13leEkYmR9mXmRuu0C1pWGUL6tl7fXknhv3YJIrTsDLp1bzNJD/J6CTSG/Xl5TAwAhAqnEcg==",
       "path": "microsoft.codeanalysis.analyzers/1.1.0",
       "hashPath": "microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512"
     },
@@ -5979,6 +6000,16 @@
       "sha512": "sha512-W6ZZ0/o7+3Qb77mRAQyLjPudHG3OMeeQ4p9yY13PUdJArmRCx2cLMm5F4tpIjJXxzHC0ew0oK7DMDGILMdfCnw==",
       "path": "windowsazure.storage/8.1.4",
       "hashPath": "windowsazure.storage.8.1.4.nupkg.sha512"
+    },
+    "EmployeePayslipCalculator.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EmployeePayslipCalculator.Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.NETCore.App/2.0.0": {
       "type": "package",

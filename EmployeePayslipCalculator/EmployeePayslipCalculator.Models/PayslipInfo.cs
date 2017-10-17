@@ -9,7 +9,7 @@ namespace EmployeePayslipCalculator.Models
         public string Id { get; set; }
         public string EmployeeId { get; set; }
         public virtual EmployeeInfo Employee { get; set; }
-        public DateTime PayPeriod { get; set; }
+        public string PayPeriod { get; set; }
         public int GrossIncome { get; set; }
         public int IncomeTax { get; set; }
         public int NetIncome { get; set; }
