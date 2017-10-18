@@ -9,5 +9,5 @@ import './rxjs-operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Employee Salary Calculator';
 }
