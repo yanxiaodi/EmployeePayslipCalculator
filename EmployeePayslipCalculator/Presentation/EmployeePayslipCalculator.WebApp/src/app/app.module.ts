@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { FieldsetModule, SpinnerModule, DropdownModule, ButtonModule } from 'primeng/primeng';
 import { HomeComponent } from './pages/home/home.component';
+import { GlobalContextService, HttpClientService, CalculatorService } from './services';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,11 @@ import { HomeComponent } from './pages/home/home.component';
     DropdownModule,
     ButtonModule
   ],
-  providers: [],
+  providers: [
+    GlobalContextService,
+    HttpClientService,
+    CalculatorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
