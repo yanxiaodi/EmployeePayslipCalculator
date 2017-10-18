@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\EmployeePayslipCalculator.Models\EmployeePayslipCalculator.Models.csproj" />
-    <ProjectReference Include="..\Domain\EmployeePayslipCalculator.Service\EmployeePayslipCalculator.Service.csproj" />
+    <ProjectReference Include="..\EmployeePayslipCalculator.Models\EmployeePayslipCalculator.Models.csproj" />
+    <ProjectReference Include="..\EmployeePayslipCalculator.Service\EmployeePayslipCalculator.Service.csproj" />
   </ItemGroup>
 
 </Project>

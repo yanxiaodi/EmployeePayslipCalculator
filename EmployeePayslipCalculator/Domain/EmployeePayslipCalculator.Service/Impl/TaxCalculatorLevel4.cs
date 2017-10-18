@@ -16,7 +16,7 @@ namespace EmployeePayslipCalculator.Service.Impl
         public override int CalculateTax()
         {
             int result = 0;
-            var tax = Utils.ConvertToInt((17574 + (this.AnnualSalary - 80000) * 0.37) / 12);
+            var tax = Utils.ConvertToInt((17547 + (this.AnnualSalary - 80000) * 0.37) / 12);
             int.TryParse(tax.ToString(), out result);
             return result;
         }
