@@ -1,34 +1,44 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EmployeePayslipCalculator.WebApp", "EmployeePayslipCalculator.WebApp\", "{29029CB8-1AF9-4140-8683-C98F5F7C615E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{C402EF12-1B80-49E1-9E21-5AAF353C3588}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{2B0A8219-EA81-4C83-BA78-8A473C17DD96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{4F569D42-B9A5-4846-A7B1-6C7EFECD0DFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.Models", "Domain\EmployeePayslipCalculator.Models\EmployeePayslipCalculator.Models.csproj", "{C0863FC7-6230-4B7F-B1B3-51D4F727133A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.Service", "Domain\EmployeePayslipCalculator.Service\EmployeePayslipCalculator.Service.csproj", "{DB5E6F41-1C66-4CB6-ABF6-07887BC8C180}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EmployeePayslipCalculator.WebApp(1)", "Presentation\EmployeePayslipCalculator.WebApp\", "{B24896F9-08DB-43B5-A808-8F154933C865}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_61796"
-		Debug.AspNetCompiler.PhysicalPath = "EmployeePayslipCalculator.WebApp\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61796\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51278"
+		Debug.AspNetCompiler.PhysicalPath = "Presentation\EmployeePayslipCalculator.WebApp\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51278\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_61796"
-		Release.AspNetCompiler.PhysicalPath = "EmployeePayslipCalculator.WebApp\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61796\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51278"
+		Release.AspNetCompiler.PhysicalPath = "Presentation\EmployeePayslipCalculator.WebApp\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51278\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "61796"
-		SlnRelativePath = "EmployeePayslipCalculator.WebApp\"
+		VWDPort = "51278"
+		SlnRelativePath = "Presentation\EmployeePayslipCalculator.WebApp\"
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.WebApi", "EmployeePayslipCalculator.WebApi\EmployeePayslipCalculator.WebApi.csproj", "{667B6CE2-5442-43E8-BF4D-29021BB161B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.WebApi.Test", "Service\EmployeePayslipCalculator.WebApi.Test\EmployeePayslipCalculator.WebApi.Test.csproj", "{5757714A-505A-453A-ACDE-5654FE0B3DC5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.Models", "EmployeePayslipCalculator.Models\EmployeePayslipCalculator.Models.csproj", "{34D2907C-FF83-4DF7-A077-83244EFE0CF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.Service.Test", "Domain\EmployeePayslipCalculator.Service.Test\EmployeePayslipCalculator.Service.Test.csproj", "{4ACCDE82-2560-4977-BEF6-4B48156DA9FF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.Service", "EmployeePayslipCalculator.Service\EmployeePayslipCalculator.Service.csproj", "{DC804837-729B-4A27-AD0A-EBC5FE0712E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayslipCalculator.WebApi", "Service\EmployeePayslipCalculator.WebApi\EmployeePayslipCalculator.WebApi.csproj", "{DBE0AFCE-D53C-47D7-8011-548385EB07CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,25 +46,41 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{29029CB8-1AF9-4140-8683-C98F5F7C615E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29029CB8-1AF9-4140-8683-C98F5F7C615E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29029CB8-1AF9-4140-8683-C98F5F7C615E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{29029CB8-1AF9-4140-8683-C98F5F7C615E}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{667B6CE2-5442-43E8-BF4D-29021BB161B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{667B6CE2-5442-43E8-BF4D-29021BB161B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{667B6CE2-5442-43E8-BF4D-29021BB161B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{667B6CE2-5442-43E8-BF4D-29021BB161B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{34D2907C-FF83-4DF7-A077-83244EFE0CF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34D2907C-FF83-4DF7-A077-83244EFE0CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34D2907C-FF83-4DF7-A077-83244EFE0CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34D2907C-FF83-4DF7-A077-83244EFE0CF4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DC804837-729B-4A27-AD0A-EBC5FE0712E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC804837-729B-4A27-AD0A-EBC5FE0712E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC804837-729B-4A27-AD0A-EBC5FE0712E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC804837-729B-4A27-AD0A-EBC5FE0712E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0863FC7-6230-4B7F-B1B3-51D4F727133A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0863FC7-6230-4B7F-B1B3-51D4F727133A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0863FC7-6230-4B7F-B1B3-51D4F727133A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0863FC7-6230-4B7F-B1B3-51D4F727133A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB5E6F41-1C66-4CB6-ABF6-07887BC8C180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB5E6F41-1C66-4CB6-ABF6-07887BC8C180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB5E6F41-1C66-4CB6-ABF6-07887BC8C180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB5E6F41-1C66-4CB6-ABF6-07887BC8C180}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24896F9-08DB-43B5-A808-8F154933C865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24896F9-08DB-43B5-A808-8F154933C865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24896F9-08DB-43B5-A808-8F154933C865}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24896F9-08DB-43B5-A808-8F154933C865}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{5757714A-505A-453A-ACDE-5654FE0B3DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5757714A-505A-453A-ACDE-5654FE0B3DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5757714A-505A-453A-ACDE-5654FE0B3DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5757714A-505A-453A-ACDE-5654FE0B3DC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ACCDE82-2560-4977-BEF6-4B48156DA9FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ACCDE82-2560-4977-BEF6-4B48156DA9FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ACCDE82-2560-4977-BEF6-4B48156DA9FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ACCDE82-2560-4977-BEF6-4B48156DA9FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBE0AFCE-D53C-47D7-8011-548385EB07CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE0AFCE-D53C-47D7-8011-548385EB07CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE0AFCE-D53C-47D7-8011-548385EB07CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE0AFCE-D53C-47D7-8011-548385EB07CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C0863FC7-6230-4B7F-B1B3-51D4F727133A} = {C402EF12-1B80-49E1-9E21-5AAF353C3588}
+		{DB5E6F41-1C66-4CB6-ABF6-07887BC8C180} = {C402EF12-1B80-49E1-9E21-5AAF353C3588}
+		{B24896F9-08DB-43B5-A808-8F154933C865} = {4F569D42-B9A5-4846-A7B1-6C7EFECD0DFA}
+		{5757714A-505A-453A-ACDE-5654FE0B3DC5} = {2B0A8219-EA81-4C83-BA78-8A473C17DD96}
+		{4ACCDE82-2560-4977-BEF6-4B48156DA9FF} = {C402EF12-1B80-49E1-9E21-5AAF353C3588}
+		{DBE0AFCE-D53C-47D7-8011-548385EB07CF} = {2B0A8219-EA81-4C83-BA78-8A473C17DD96}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {004FD83A-8580-43C0-8D27-F4FAD26D3022}

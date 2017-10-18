@@ -1,0 +1,59 @@
+<p-growl [(value)]="messages" [life]="3000" [immutable]="false"></p-growl>
+<p-fieldset legend="Input">
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                <input type="text" pInputText placeholder="First Name" required [(ngModel)]="employee.firstName">
+            </div>
+        </div>
+
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                <input type="text" pInputText required placeholder="Last Name" [(ngModel)]="employee.lastName">
+            </div>
+        </div>
+
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">$</span>
+                <input type="text" pInputText required placeholder="Annual Salary" [(ngModel)]="employee.annualSalary">
+                <span class="ui-inputgroup-addon">.00</span>
+            </div>
+        </div>
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">$</span>
+                <input type="text" min="1" max="50" pInputText required placeholder="Super Rate" [(ngModel)]="superRate">
+                <span class="ui-inputgroup-addon">%</span>
+            </div>
+        </div>
+        <div class="ui-g-12 ui-md-4">
+            <p-dropdown [options]="months" [(ngModel)]="selectedMonth"></p-dropdown>
+        </div>
+
+        <div class="ui-g-12 ui-md-4">
+            <button pButton type="button" label="Calculate" (click)="calculate()"></button>
+        </div>
+    </div>
+</p-fieldset>
+<p-fieldset legend="Output">
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-4">
+            Pay Period: {{payslipInfo?.payPeriod}}
+        </div>
+        <div class="ui-g-12 ui-md-4">
+            Gross Income: {{payslipInfo?.grossIncome}}
+        </div>
+        <div class="ui-g-12 ui-md-4">
+            Income Tax: {{payslipInfo?.incomeTax}}
+        </div>
+        <div class="ui-g-12 ui-md-4">
+            Net Income: {{payslipInfo?.netIncome}}
+        </div>
+        <div class="ui-g-12 ui-md-4">
+            Super: {{payslipInfo?.super}}
+        </div>
+    </div>
+</p-fieldset>
