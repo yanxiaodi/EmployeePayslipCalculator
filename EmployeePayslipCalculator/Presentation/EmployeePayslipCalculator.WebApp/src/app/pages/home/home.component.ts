@@ -5,22 +5,39 @@ import { EmployeeInfo } from './../../models';
 import { Component, OnInit } from '@angular/core';
 import { SpinnerModule } from 'primeng/primeng';
 import { SelectItem, Message } from 'primeng/primeng';
+import { NgForm, Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  userform: FormGroup;
+  submitted: boolean;
   public messages: Message[] = [];
   public employee: EmployeeInfo;
   public superRate: number;
   public months: SelectItem[];
   public selectedMonth: number;
   public payslipInfo: PayslipInfo;
-  constructor(public calculatorService: CalculatorService, public globalContextService: GlobalContextService) {
+  constructor(private fb: FormBuilder, public calculatorService: CalculatorService, public globalContextService: GlobalContextService) {
     this.messages = this.globalContextService.messages;
     this.employee = new EmployeeInfo();
     this.months = [];
+    this.initMonths();
+  }
+
+  ngOnInit() {
+    this.userform = this.fb.group({
+      'firstNameControl': new FormControl('', Validators.required),
+      'lastNameControl': new FormControl('', Validators.required),
+      'annualSalaryControl': new FormControl('', Validators.compose([Validators.required, Validators.min(0)])),
+      'superRateControl': new FormControl('', Validators.compose([Validators.required, Validators.min(0), Validators.max(50)])),
+      'selectedMonthControl': new FormControl('', Validators.required)
+    });
+  }
+
+  initMonths() {
     this.months.push({ label: 'January', value: 1 });
     this.months.push({ label: 'February ', value: 2 });
     this.months.push({ label: 'March', value: 3 });
@@ -33,20 +50,23 @@ export class HomeComponent implements OnInit {
     this.months.push({ label: 'October', value: 10 });
     this.months.push({ label: 'November', value: 11 });
     this.months.push({ label: 'December', value: 12 });
+    this.selectedMonth = 1;
   }
 
-  ngOnInit() {
-  }
-
-  async calculate() {
+  async onSubmit() {
+    this.submitted = true;
     const isValid = this.checkInput();
     if (isValid) {
-      const result = await this.calculatorService.Calculate(this.selectedMonth, this.employee);
-      if (result.isSuccess) {
-        this.payslipInfo = result.result;
-        console.log(this.payslipInfo);
-      } else {
-        this.globalContextService.showErrorMessage('Errors!' + result.message);
+      try {
+        const result = await this.calculatorService.Calculate(this.selectedMonth, this.employee);
+        if (result.isSuccess) {
+          this.payslipInfo = result.result;
+          console.log(this.payslipInfo);
+        } else {
+          this.globalContextService.showErrorMessage('Errors!' + result.message);
+        }
+      } catch (ex) {
+        this.globalContextService.showErrorMessage('Errors!' + ex);
       }
     }
   }

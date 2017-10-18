@@ -1,45 +1,64 @@
 <p-growl [(value)]="messages" [life]="3000" [immutable]="false"></p-growl>
 <p-fieldset legend="Input">
-    <div class="ui-g ui-fluid">
-        <div class="ui-g-12 ui-md-4">
-            <div class="ui-inputgroup">
-                <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-                <input type="text" pInputText placeholder="First Name" required [(ngModel)]="employee.firstName">
+    <form [formGroup]="userform" (ngSubmit)="onSubmit(userform.value)">
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-4">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" pInputText placeholder="First Name" required [(ngModel)]="employee.firstName" formControlName="firstNameControl">
+                </div>
+                <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['firstNameControl'].valid&&userform.controls['firstNameControl'].dirty">
+                    <i class="fa fa-close"></i> Please input the first name.
+                </div>
             </div>
-        </div>
 
-        <div class="ui-g-12 ui-md-4">
-            <div class="ui-inputgroup">
-                <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-                <input type="text" pInputText required placeholder="Last Name" [(ngModel)]="employee.lastName">
+            <div class="ui-g-12 ui-md-4">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" pInputText required placeholder="Last Name" [(ngModel)]="employee.lastName" formControlName="lastNameControl">
+                </div>
+                <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['lastNameControl'].valid&&userform.controls['lastNameControl'].dirty">
+                    <i class="fa fa-close"></i> Please input the last name.
+                </div>
             </div>
-        </div>
 
-        <div class="ui-g-12 ui-md-4">
-            <div class="ui-inputgroup">
-                <span class="ui-inputgroup-addon">$</span>
-                <input type="text" pInputText required placeholder="Annual Salary" [(ngModel)]="employee.annualSalary">
-                <span class="ui-inputgroup-addon">.00</span>
+            <div class="ui-g-12 ui-md-4">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">$</span>
+                    <input type="text" pInputText required placeholder="Annual Salary" [(ngModel)]="employee.annualSalary" formControlName="annualSalaryControl">
+                    <span class="ui-inputgroup-addon">.00</span>
+                </div>
+                <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['annualSalaryControl'].valid&&userform.controls['annualSalaryControl'].dirty">
+                    <i class="fa fa-close"></i> Please input the annnual salary.
+                </div>
             </div>
-        </div>
-        <div class="ui-g-12 ui-md-4">
-            <div class="ui-inputgroup">
-                <span class="ui-inputgroup-addon">$</span>
-                <input type="text" min="1" max="50" pInputText required placeholder="Super Rate" [(ngModel)]="superRate">
-                <span class="ui-inputgroup-addon">%</span>
+            <div class="ui-g-12 ui-md-4">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">$</span>
+                    <input type="text" min="1" max="50" pInputText required placeholder="Super Rate" [(ngModel)]="superRate" formControlName="superRateControl">
+                    <span class="ui-inputgroup-addon">%</span>
+                </div>
+                <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['superRateControl'].valid&&userform.controls['superRateControl'].dirty">
+                    <i class="fa fa-close"></i> Please input the super rate.
+                </div>
             </div>
-        </div>
-        <div class="ui-g-12 ui-md-4">
-            <p-dropdown [options]="months" [(ngModel)]="selectedMonth"></p-dropdown>
-        </div>
+            <div class="ui-g-12 ui-md-4">
+                <p-dropdown [options]="months" [(ngModel)]="selectedMonth" formControlName="selectedMonthControl"></p-dropdown>
+                <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['selectedMonthControl'].valid&&userform.controls['selectedMonthControl'].dirty">
+                    <i class="fa fa-close"></i> Please select the month.
+                </div>
+            </div>
 
-        <div class="ui-g-12 ui-md-4">
-            <button pButton type="button" label="Calculate" (click)="calculate()"></button>
+            <div class="ui-g-12 ui-md-4">
+                <button pButton type="submit" label="Calculate" [disabled]="!userform.valid"></button> </div>
         </div>
-    </div>
+    </form>
 </p-fieldset>
 <p-fieldset legend="Output">
     <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-4">
+            Full Name: {{payslipInfo?.employee.fullName}}
+        </div>
         <div class="ui-g-12 ui-md-4">
             Pay Period: {{payslipInfo?.payPeriod}}
         </div>
