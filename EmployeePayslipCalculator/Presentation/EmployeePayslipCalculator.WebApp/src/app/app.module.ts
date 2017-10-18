@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
-import { FieldsetModule, SpinnerModule, DropdownModule, ButtonModule } from 'primeng/primeng';
+import { FieldsetModule, SpinnerModule, DropdownModule, ButtonModule, GrowlModule } from 'primeng/primeng';
 import { HomeComponent } from './pages/home/home.component';
 import { GlobalContextService, HttpClientService, CalculatorService } from './services';
 
@@ -25,7 +25,8 @@ import { GlobalContextService, HttpClientService, CalculatorService } from './se
     FieldsetModule,
     SpinnerModule,
     DropdownModule,
-    ButtonModule
+    ButtonModule,
+    GrowlModule
   ],
   providers: [
     GlobalContextService,

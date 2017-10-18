@@ -1,3 +1,4 @@
+<p-growl [(value)]="messages" [life]="3000" [immutable]="false"></p-growl>
 <p-fieldset legend="Input">
     <div class="ui-g ui-fluid">
         <div class="ui-g-12 ui-md-4">
@@ -33,7 +34,7 @@
         </div>
 
         <div class="ui-g-12 ui-md-4">
-            <button pButton type="button" label="Calculate"></button>
+            <button pButton type="button" label="Calculate" (click)="calculate()"></button>
         </div>
     </div>
 </p-fieldset>

@@ -4,11 +4,11 @@ import { Message } from 'primeng/primeng';
 @Injectable()
 export class GlobalContextService {
   /**API url */
-  public server = 'http://localhost/Application.Client.Web.GateMonitor/api/';
+  public server = 'http://localhost:58258/api/';
 
   public CONFIGURATION = {
     baseUrls: {
-      server: 'http://localhost/Application.Client.Web.GateMonitor'
+      server: 'http://localhost:4200'
     },
   };
 

@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\EmployeePayslipCalculator.Models\EmployeePayslipCalculator.Models.csproj" />
+    <ProjectReference Include="..\EmployeePayslipCalculator.WebApi\EmployeePayslipCalculator.WebApi.csproj" />
   </ItemGroup>
 
 </Project>
