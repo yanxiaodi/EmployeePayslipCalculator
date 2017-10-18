@@ -36,9 +36,13 @@ namespace EmployeePayslipCalculator.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            // Shows UseCors with CorsPolicyBuilder.
+            app.UseCors(builder =>
+               builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default", "{controller}/{action}/{id?}");
+                routes.MapRoute("default", "api/{controller}/{action}/{id?}");
             });
         }
     }

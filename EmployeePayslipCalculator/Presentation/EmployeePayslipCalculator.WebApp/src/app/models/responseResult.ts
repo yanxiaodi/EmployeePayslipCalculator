@@ -4,13 +4,13 @@ export class ResponseResultBase {
      * @value
      * @c  true if this instance is success; otherwise, @c  false.
      */
-    IsSuccess: boolean;
+    isSuccess: boolean;
     /**
      * Gets or sets the message.
      * @value
      * The message.
      */
-    Message: string;
+    message: string;
 }
 
 export class ResponseResult<T> extends ResponseResultBase {
@@ -19,5 +19,5 @@ export class ResponseResult<T> extends ResponseResultBase {
      * @value
      * The result.
      */
-    Result: T;
+    result: T;
 }

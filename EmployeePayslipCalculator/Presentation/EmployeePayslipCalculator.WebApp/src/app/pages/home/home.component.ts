@@ -39,46 +39,53 @@ export class HomeComponent implements OnInit {
   }
 
   async calculate() {
-    const result = await this.calculatorService.Calculate(this.selectedMonth, this.employee);
-    if (result.IsSuccess) {
-      this.payslipInfo = result.Result;
-      console.log(this.payslipInfo);
-    } else {
-      this.globalContextService.showErrorMessage('Errors!' + result.Message);
+    const isValid = this.checkInput();
+    if (isValid) {
+      const result = await this.calculatorService.Calculate(this.selectedMonth, this.employee);
+      if (result.isSuccess) {
+        this.payslipInfo = result.result;
+        console.log(this.payslipInfo);
+      } else {
+        this.globalContextService.showErrorMessage('Errors!' + result.message);
+      }
     }
   }
 
-  checkInput() {
-    if (this.employee.FirstName === '' || this.employee.FirstName === null || this.employee.FirstName === undefined) {
+  checkInput(): boolean {
+    let isValid = true;
+    if (this.employee.firstName === '' || this.employee.firstName === null || this.employee.firstName === undefined) {
       this.globalContextService.showWarnMessage('Please input the first name!');
-      return;
-    } else if (this.employee.LastName === '' || this.employee.LastName === null || this.employee.LastName === undefined) {
+      return false;
+    } else if (this.employee.lastName === '' || this.employee.lastName === null || this.employee.lastName === undefined) {
       this.globalContextService.showWarnMessage('Please input the last name!');
-      return;
+      return false;
     }
     try {
-      this.employee.AnnualSalary = Number.parseInt(this.employee.AnnualSalary.toString());
-      if (this.employee.AnnualSalary <= 0) {
+      this.employee.annualSalary = Number.parseInt(this.employee.annualSalary.toString());
+      if (this.employee.annualSalary <= 0) {
         this.globalContextService.showWarnMessage('The annual salary must be more than 0!');
-        return;
+        return false;
       }
     } catch (ex) {
+      isValid = false;
       this.globalContextService.showWarnMessage('Please input a valid number for annual salary!');
       console.log(ex);
-      return;
     }
     try {
-      this.employee.SuperRate = Number.parseFloat(this.superRate.toString()) / 100;
-      if (this.employee.SuperRate < 0 || this.employee.SuperRate > 0.5) {
+      this.employee.superRate = Number.parseFloat(this.superRate.toString()) / 100;
+      if (this.employee.superRate < 0 || this.employee.superRate > 0.5) {
         this.globalContextService.showWarnMessage('The super rate must be between 0 and 0.5!');
+        return false;
       }
     } catch (ex) {
+      isValid = false;
       this.globalContextService.showWarnMessage('Please input a valid number for super rate!');
       console.log(ex);
       return;
     }
     console.log(this.employee);
     console.log(this.selectedMonth);
+    return isValid;
   }
 
 }

@@ -1,7 +1,7 @@
 export class EmployeeInfo {
-    FirstName: string;
-    LastName: string;
-    AnnualSalary: number;
-    SuperRate: number;
-    FullName: string;
+    firstName: string;
+    lastName: string;
+    annualSalary: number;
+    superRate: number;
+    fullName: string;
 }
