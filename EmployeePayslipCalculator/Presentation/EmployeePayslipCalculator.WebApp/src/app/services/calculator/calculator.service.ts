@@ -10,7 +10,7 @@ export class CalculatorService {
 
   public async Calculate(month: number, employee: EmployeeInfo) {
     const url = `${this.globalContext.server}Calculator/Calculate?month=${month}`;
-    return await this.httpClient.post<ResponseResult<PayslipInfo>>(url, employee);
+    return await this.httpClient.post<PayslipInfo>(url, employee);
   }
 
 }

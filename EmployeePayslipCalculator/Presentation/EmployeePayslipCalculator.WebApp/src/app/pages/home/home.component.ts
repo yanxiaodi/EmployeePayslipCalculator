@@ -1,3 +1,5 @@
+import { PayslipInfo } from './../../models/payslipInfo';
+import { async } from '@angular/core/testing';
 import { CalculatorService, GlobalContextService } from './../../services';
 import { EmployeeInfo } from './../../models';
 import { Component, OnInit } from '@angular/core';
@@ -14,6 +16,7 @@ export class HomeComponent implements OnInit {
   public superRate: number;
   public months: SelectItem[];
   public selectedMonth: number;
+  public payslipInfo: PayslipInfo;
   constructor(public calculatorService: CalculatorService, public globalContextService: GlobalContextService) {
     this.messages = this.globalContextService.messages;
     this.employee = new EmployeeInfo();
@@ -35,8 +38,17 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  calculate() {
-    console.log(this.employee);
+  async calculate() {
+    const result = await this.calculatorService.Calculate(this.selectedMonth, this.employee);
+    if (result.IsSuccess) {
+      this.payslipInfo = result.Result;
+      console.log(this.payslipInfo);
+    } else {
+      this.globalContextService.showErrorMessage('Errors!' + result.Message);
+    }
+  }
+
+  checkInput() {
     if (this.employee.FirstName === '' || this.employee.FirstName === null || this.employee.FirstName === undefined) {
       this.globalContextService.showWarnMessage('Please input the first name!');
       return;
@@ -66,6 +78,7 @@ export class HomeComponent implements OnInit {
       return;
     }
     console.log(this.employee);
+    console.log(this.selectedMonth);
   }
 
 }
