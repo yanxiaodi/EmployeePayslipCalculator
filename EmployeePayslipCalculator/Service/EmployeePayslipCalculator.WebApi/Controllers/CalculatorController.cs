@@ -40,5 +40,27 @@ namespace EmployeePayslipCalculator.WebApi.Controllers
                 return Ok(response);
             }
         }
+
+        [HttpPost]
+        public IActionResult BatchCalculate(int month, [FromBody] List<EmployeeInfo> items)
+        {
+            ResponseResult<List<PayslipInfo>> response = new ResponseResult<List<PayslipInfo>>();
+            try
+            {
+                if (items == null)
+                {
+                    return BadRequest();
+                }
+                var result = this.service.Calculate(items, month);
+                response.Result = result;
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+                return Ok(response);
+            }
+        }
     }
 }

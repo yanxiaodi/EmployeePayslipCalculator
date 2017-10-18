@@ -38,6 +38,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EmployeePayslipCalculator.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayslipCalculator.Service.Test", "EmployeePayslipCalculator.Service.Test\EmployeePayslipCalculator.Service.Test.csproj", "{EDB1D283-8446-46E7-8882-045E2CB3BADF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayslipCalculator.WebApi.Test", "Service\EmployeePayslipCalculator.WebApi.Test\EmployeePayslipCalculator.WebApi.Test.csproj", "{5757714A-505A-453A-ACDE-5654FE0B3DC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{EDB1D283-8446-46E7-8882-045E2CB3BADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDB1D283-8446-46E7-8882-045E2CB3BADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDB1D283-8446-46E7-8882-045E2CB3BADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5757714A-505A-453A-ACDE-5654FE0B3DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5757714A-505A-453A-ACDE-5654FE0B3DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5757714A-505A-453A-ACDE-5654FE0B3DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5757714A-505A-453A-ACDE-5654FE0B3DC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{391394F4-994A-46CB-8795-28DB5A70C850} = {2B0A8219-EA81-4C83-BA78-8A473C17DD96}
 		{B24896F9-08DB-43B5-A808-8F154933C865} = {4F569D42-B9A5-4846-A7B1-6C7EFECD0DFA}
 		{EDB1D283-8446-46E7-8882-045E2CB3BADF} = {C402EF12-1B80-49E1-9E21-5AAF353C3588}
+		{5757714A-505A-453A-ACDE-5654FE0B3DC5} = {2B0A8219-EA81-4C83-BA78-8A473C17DD96}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {004FD83A-8580-43C0-8D27-F4FAD26D3022}
