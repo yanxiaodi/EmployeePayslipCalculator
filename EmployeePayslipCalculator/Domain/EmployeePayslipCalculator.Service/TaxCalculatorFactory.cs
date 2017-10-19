@@ -22,31 +22,31 @@ namespace EmployeePayslipCalculator.Service
                 return instance;
             }
         }
-        public TaxCalculatorBase CreateTaxCalculator(EmployeeInfo employee)
+        public TaxCalculatorBase CreateTaxCalculator(int annualSalary)
         {
-            if (employee.AnnualSalary <= 0)
+            if (annualSalary <= 0)
             {
                 throw new Exception("wrong salary range!");
             }
-            else if (employee.AnnualSalary <= 18200)
+            else if (annualSalary <= 18200)
             {
                 return new TaxCalculatorLevel1();
             }
-            else if (employee.AnnualSalary <= 37000)
+            else if (annualSalary <= 37000)
             {
-                return new TaxCalculatorLevel2(employee.AnnualSalary);
+                return new TaxCalculatorLevel2(annualSalary);
             }
-            else if (employee.AnnualSalary <= 80000)
+            else if (annualSalary <= 80000)
             {
-                return new TaxCalculatorLevel3(employee.AnnualSalary);
+                return new TaxCalculatorLevel3(annualSalary);
             }
-            else if (employee.AnnualSalary <= 180000)
+            else if (annualSalary <= 180000)
             {
-                return new TaxCalculatorLevel4(employee.AnnualSalary);
+                return new TaxCalculatorLevel4(annualSalary);
             }
             else
             {
-                return new TaxCalculatorLevel5(employee.AnnualSalary);
+                return new TaxCalculatorLevel5(annualSalary);
             }
         }
     }
