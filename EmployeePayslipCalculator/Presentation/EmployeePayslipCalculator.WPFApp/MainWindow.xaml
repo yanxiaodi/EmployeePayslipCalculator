@@ -4,13 +4,29 @@
         Title="{Binding DataContext.Title, ElementName=grid}"
         Height="350" Width="525"
         xmlns:mvvm="clr-namespace:MVVMSidekick.Views;assembly=MVVMSidekick"        
-        xmlns:vm="clr-namespace:EmployeePayslipCalculator.WPFApp.ViewModels" >
-    
+        xmlns:vm="clr-namespace:EmployeePayslipCalculator.WPFApp.ViewModels"
+                 xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
+
     <FrameworkElement.Resources >
         <vm:MainWindow_Model x:Key="DesignVM" />
     </FrameworkElement.Resources>
     <Grid x:Name="grid" DataContext="{StaticResource DesignVM}">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  HorizontalAlignment="Right" Margin="12,0" TextWrapping="Wrap" Text="Source Data File" VerticalAlignment="Center" Width="100"/>
+                <TextBox  HorizontalAlignment="Left" Height="23" Margin="12,4" VerticalAlignment="Top" Width="266" Text="{Binding SourceDataFilePath}"/>
+                <Button Content="Select File" HorizontalAlignment="Left" Margin="12,4,12,0" VerticalAlignment="Center" Width="75" Command="{Binding CommandSelectSourceDataFile}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock HorizontalAlignment="Left" Margin="12,0" TextWrapping="Wrap" Text="Result Output Path" VerticalAlignment="Center" Width="100"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="12,4,12,0" VerticalAlignment="Top" Width="264" Text="{Binding ResultOutputPath}"/>
+                <Button  Content="Select Path" HorizontalAlignment="Left" Margin="12,0" VerticalAlignment="Center" Width="75" Command="{Binding CommandSelectResultOutputPath}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button  Content="Generate Result" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" Width="173" Command="{Binding CommandGenerateResultFile}"/>
 
+            </StackPanel>
+        </StackPanel>
 
     </Grid>
 </mvvm:MVVMWindow>

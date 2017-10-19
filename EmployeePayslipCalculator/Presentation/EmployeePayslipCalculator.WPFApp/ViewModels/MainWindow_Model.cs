@@ -46,6 +46,165 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
 
 
 
+        #region properties
+
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+
+
+        public string SourceDataFilePath
+        {
+            get { return _SourceDataFilePathLocator(this).Value; }
+            set { _SourceDataFilePathLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property string SourceDataFilePath Setup        
+        protected Property<string> _SourceDataFilePath = new Property<string> { LocatorFunc = _SourceDataFilePathLocator };
+        static Func<BindableBase, ValueContainer<string>> _SourceDataFilePathLocator = RegisterContainerLocator<string>("SourceDataFilePath", model => model.Initialize("SourceDataFilePath", ref model._SourceDataFilePath, ref _SourceDataFilePathLocator, _SourceDataFilePathDefaultValueFactory));
+        static Func<string> _SourceDataFilePathDefaultValueFactory = () => default(string);
+        #endregion
+
+
+
+        public string ResultOutputPath
+        {
+            get { return _ResultOutputPathLocator(this).Value; }
+            set { _ResultOutputPathLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property string ResultOutputPath Setup        
+        protected Property<string> _ResultOutputPath = new Property<string> { LocatorFunc = _ResultOutputPathLocator };
+        static Func<BindableBase, ValueContainer<string>> _ResultOutputPathLocator = RegisterContainerLocator<string>("ResultOutputPath", model => model.Initialize("ResultOutputPath", ref model._ResultOutputPath, ref _ResultOutputPathLocator, _ResultOutputPathDefaultValueFactory));
+        static Func<string> _ResultOutputPathDefaultValueFactory = () => default(string);
+        #endregion
+
+        #endregion
+
+
+        public CommandModel<ReactiveCommand, String> CommandSelectSourceDataFile
+        {
+            get { return _CommandSelectSourceDataFileLocator(this).Value; }
+            set { _CommandSelectSourceDataFileLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandSelectSourceDataFile Setup        
+
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandSelectSourceDataFile = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandSelectSourceDataFileLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandSelectSourceDataFileLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandSelectSourceDataFile", model => model.Initialize("CommandSelectSourceDataFile", ref model._CommandSelectSourceDataFile, ref _CommandSelectSourceDataFileLocator, _CommandSelectSourceDataFileDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandSelectSourceDataFileDefaultValueFactory =
+            model =>
+            {
+                var state = "CommandSelectSourceDataFile";           // Command state  
+                var commandId = "CommandSelectSourceDataFile";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
+
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            //Todo: Add SelectSourceDataFile logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                            if (vm.openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                            {
+                                vm.SourceDataFilePath = vm.openFileDialog.FileName;
+                            }
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
+
+                var cmdmdl = cmd.CreateCommandModel(state);
+
+                cmdmdl.ListenToIsUIBusy(
+                    model: vm,
+                    canExecuteWhenBusy: false);
+                return cmdmdl;
+            };
+
+        #endregion
+
+
+
+        public CommandModel<ReactiveCommand, String> CommandSelectResultOutputPath
+        {
+            get { return _CommandSelectResultOutputPathLocator(this).Value; }
+            set { _CommandSelectResultOutputPathLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandSelectResultOutputPath Setup        
+
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandSelectResultOutputPath = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandSelectResultOutputPathLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandSelectResultOutputPathLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandSelectResultOutputPath", model => model.Initialize("CommandSelectResultOutputPath", ref model._CommandSelectResultOutputPath, ref _CommandSelectResultOutputPathLocator, _CommandSelectResultOutputPathDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandSelectResultOutputPathDefaultValueFactory =
+            model =>
+            {
+                var state = "CommandSelectResultOutputPath";           // Command state  
+                var commandId = "CommandSelectResultOutputPath";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
+
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            //Todo: Add SelectResultOutputPath logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                            if (vm.openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                            {
+                                vm.SourceDataFilePath = vm.openFileDialog.FileName;
+                            }
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
+
+                var cmdmdl = cmd.CreateCommandModel(state);
+
+                cmdmdl.ListenToIsUIBusy(
+                    model: vm,
+                    canExecuteWhenBusy: false);
+                return cmdmdl;
+            };
+
+        #endregion
+
+
+        public CommandModel<ReactiveCommand, String> CommandGenerateResultFile
+        {
+            get { return _CommandGenerateResultFileLocator(this).Value; }
+            set { _CommandGenerateResultFileLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandGenerateResultFile Setup        
+
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandGenerateResultFile = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandGenerateResultFileLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandGenerateResultFileLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandGenerateResultFile", model => model.Initialize("CommandGenerateResultFile", ref model._CommandGenerateResultFile, ref _CommandGenerateResultFileLocator, _CommandGenerateResultFileDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandGenerateResultFileDefaultValueFactory =
+            model =>
+            {
+                var state = "CommandGenerateResultFile";           // Command state  
+                var commandId = "CommandGenerateResultFile";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
+
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            //Todo: Add GenerateResultFile logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
+
+                var cmdmdl = cmd.CreateCommandModel(state);
+
+                cmdmdl.ListenToIsUIBusy(
+                    model: vm,
+                    canExecuteWhenBusy: false);
+                return cmdmdl;
+            };
+
+        #endregion
+
+
+
         #region Life Time Event Handling
 
         ///// <summary>
