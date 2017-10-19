@@ -57,6 +57,73 @@ I use `int.TryParse()` method because it is more safe than `int.Parse()`.
 
 For robustly, I also add some code for checking the value. If the param value is illegal, the service will throw a exception.
 
-In the service code, I implement 2 method to calculate a single employee and a employees list. So it makes the service more flexible.
+In the service code, I implement 2 methods to calculate a single employee and a employees list. So it makes the service more flexible.
+
+The `EmployeePayslipCalculator.Service.Test` project is the unit test. I use xUnit framework, which is a good test framework for testing. I can create more test codes but for demonstration, it's enough.
+
+In fact, I found a mistake by testing in my development process, since I typed a wrong number. So testing is very important for software development.
+
+## Service
+
+This folder contain 2 projects. 
+
+`EmployeePayslipCalculator.WebApi` is a ASP.NET Core project. It expose a web api to the callers. Any clients can use this api through the HTTP protocal. This architecture is more and more popular in modern software development.
+
+First, I use this code shown below to inject a instance of `PayslipCalculatorService` in the `ConfigureServices` method of `Startup` class:
+
+`services.AddSingleton(typeof(PayslipCalculatorService), new PayslipCalculatorService());
+`
+
+So I'm able to use this service in the controller like this:
+
+```
+public CalculatorController(PayslipCalculatorService service)
+        {
+            this.service = service;
+        }
+```
+
+This is a kind of Dependency Injection, we can call it `Constructor Injection`.
+
+I create a Action named `Calculate` to receive the params, like this:
+
+```
+        [HttpPost]
+        public IActionResult Calculate(int month, [FromBody] EmployeeInfo item)
+        {
+```
+
+Another Action is for batch calculation:
+
+```
+        [HttpPost]
+        public IActionResult BatchCalculate(int month, [FromBody] List<EmployeeInfo> items)
+        {
+```
+
+I use `EmployeePayslipCalculator.WebApi.Test` project to test the api. By comparison to the `EmployeePayslipCalculator.Service.Test` project, I use Microsoft Test Framework to do the test. They have many similarities and all of them are easy to use.
+
+In our real projects, we should use log system for the api. But this is only a demo, so I didn't use log. If the burden of the api become more heavy, we should scale up or scale out the api to face a great many requests. We can also use MQ, like RabbitMQ, to improve the reliability of the api.
+
+## Presentation
+
+I would like to use some different client apps to call the api, including the web app, mobile app, and the WPF app.
+
+### Web App
+
+`EmployeePayslipCalculator.WebApp` is a angular project. I like Angular and TypeScript since they can improve my work efficiency.
+
+An Angular app must have some resonable layers design. I create a service named `HttpClientService` to encapsulate the HTTP api of Angular. So I can easily get a response model from the api. The main service is the `CalculatorService` class. It's very simple that just contains a few codes.
+
+The challenge for the front-end app is dealing with the inputs from the users. That's a crucial factor to determine whether the app is robust. I create a single method named `checkInput()` to check the values except the validators of ngForm.
+
+I use PrimeNG for the UI presentation. It is a good UI framework for Angular app and easy to use, just like jQuery UI.
+
+### Mobile App
+
+Cross-Platform development is more and more popular now. I use Ionic Framework to create the Cordova app. It's elegant and very easy to use. I reuse many codes of `EmployeePayslipCalculator.WebApp`, such as models, services, and check methods, etc. 
+
+You can compile it for different platforms, including iOS, Android, UWP, or just run it as a web app in the browser. 
+
 
 
