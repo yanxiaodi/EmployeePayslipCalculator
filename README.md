@@ -69,7 +69,7 @@ This folder contain 2 projects.
 
 `EmployeePayslipCalculator.WebApi` is a ASP.NET Core project. It expose a web api to the callers. Any clients can use this api through the HTTP protocal. This architecture is more and more popular in modern software development.
 
-First, I use this code shown below to inject a instance of `PayslipCalculatorService` in the `ConfigureServices` method of `Startup` class:
+First, I use this code shown below to inject an instance of `PayslipCalculatorService` in the `ConfigureServices` method of `Startup` class:
 
 `services.AddSingleton(typeof(PayslipCalculatorService), new PayslipCalculatorService());
 `
@@ -103,7 +103,7 @@ Another Action is for batch calculation:
 
 I use `EmployeePayslipCalculator.WebApi.Test` project to test the api. By comparison to the `EmployeePayslipCalculator.Service.Test` project, I use Microsoft Test Framework to do the test. They have many similarities and all of them are easy to use.
 
-In our real projects, we should use log system for the api. But this is only a demo, so I didn't use log. If the burden of the api become more heavy, we should scale up or scale out the api to face a great many requests. We can also use MQ, like RabbitMQ, to improve the reliability of the api.
+In our real projects, we should use log system for the api. But this is just a demo, so I didn't use log. If the burden of the api become more heavy, we should scale up or scale out the api to face a great many requests. We can also use MQ, like RabbitMQ, to improve the reliability of the api.
 
 ## Presentation
 
@@ -111,7 +111,7 @@ I would like to use some different client apps to call the api, including the we
 
 ### Web App
 
-`EmployeePayslipCalculator.WebApp` is a angular project. I like Angular and TypeScript since they can improve my work efficiency.
+`EmployeePayslipCalculator.WebApp` is an Angular project. I like Angular and TypeScript since they can improve my work efficiency.
 
 An Angular app must have some resonable layers design. I create a service named `HttpClientService` to encapsulate the HTTP api of Angular. So I can easily get a response model from the api. The main service is the `CalculatorService` class. It's very simple that just contains a few codes.
 
@@ -123,7 +123,9 @@ I use PrimeNG for the UI presentation. It is a good UI framework for Angular app
 
 Cross-Platform development is more and more popular now. I use Ionic Framework to create the Cordova app. It's elegant and very easy to use. I reuse many codes of `EmployeePayslipCalculator.WebApp`, such as models, services, and check methods, etc. 
 
-You can compile it for different platforms, including iOS, Android, UWP, or just run it as a web app in the browser. 
+You can compile it for different platforms, including iOS, Android, UWP, or just run it as a web app in the browser.
+
+
 
 
 
