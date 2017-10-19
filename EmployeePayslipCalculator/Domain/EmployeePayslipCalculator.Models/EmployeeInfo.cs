@@ -18,5 +18,6 @@ namespace EmployeePayslipCalculator.Models
         /// The full name.
         /// </value>
         public string FullName => $"{FirstName} {LastName}";
+
     }
 }

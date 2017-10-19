@@ -38,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.Service.Test", "Domain\EmployeePayslipCalculator.Service.Test\EmployeePayslipCalculator.Service.Test.csproj", "{4ACCDE82-2560-4977-BEF6-4B48156DA9FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayslipCalculator.WebApi", "Service\EmployeePayslipCalculator.WebApi\EmployeePayslipCalculator.WebApi.csproj", "{DBE0AFCE-D53C-47D7-8011-548385EB07CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.WebApi", "Service\EmployeePayslipCalculator.WebApi\EmployeePayslipCalculator.WebApi.csproj", "{DBE0AFCE-D53C-47D7-8011-548385EB07CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
