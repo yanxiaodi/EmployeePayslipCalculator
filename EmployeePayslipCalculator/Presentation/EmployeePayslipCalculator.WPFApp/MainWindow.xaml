@@ -22,8 +22,16 @@
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="12,4,12,0" VerticalAlignment="Top" Width="264" Text="{Binding ResultOutputPath}"/>
                 <Button  Content="Select Path" HorizontalAlignment="Left" Margin="12,0" VerticalAlignment="Center" Width="75" Command="{Binding CommandSelectResultOutputPath}"/>
             </StackPanel>
+            <!--<StackPanel Orientation="Horizontal">
+                <TextBlock HorizontalAlignment="Left" Margin="12,0" TextWrapping="Wrap" Text="Result Output Path" VerticalAlignment="Center" Width="100"/>
+                <ComboBox HorizontalAlignment="Left" Height="23" Margin="12,4,12,0" VerticalAlignment="Top" Width="264" Text="{Binding Months}" SelectedItem="{Binding }"/>
+            </StackPanel>-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,12,0,0">
-                <Button  Content="Generate Result" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" Width="173" Command="{Binding CommandGenerateResultFile}"/>
+                <Button  Content="Generate Result by Local Code" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" Width="200" Command="{Binding CommandGenerateResultFile}"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,12,0,0">
+                <Button  Content="Generate Result by Web API" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" Width="200" Command="{Binding CommandGenerateResultFileByWebApi}"/>
 
             </StackPanel>
         </StackPanel>

@@ -12,6 +12,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
+using System.Windows;
+using NPOI.SS.UserModel;
+using System.IO;
+using NPOI.HSSF.UserModel;
+using NPOI.XSSF.UserModel;
+using EmployeePayslipCalculator.Models;
 
 namespace EmployeePayslipCalculator.WPFApp.ViewModels
 {
@@ -151,7 +157,7 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
                             if (vm.openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                             {
-                                vm.SourceDataFilePath = vm.openFileDialog.FileName;
+                                vm.ResultOutputPath = Path.GetDirectoryName(vm.openFileDialog.FileName);
                             }
                         })
                     .DoNotifyDefaultEventRouter(vm, commandId)
@@ -192,6 +198,12 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
                         {
                             //Todo: Add GenerateResultFile logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                            if (string.IsNullOrEmpty(vm.SourceDataFilePath) || string.IsNullOrEmpty(vm.ResultOutputPath))
+                            {
+                                MessageBox.Show("Please select the source data file and the output path", "Warning！", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                return;
+                            }
+                            List<EmployeeInfo> list = vm.GetEmployeeList();
                         })
                     .DoNotifyDefaultEventRouter(vm, commandId)
                     .Subscribe()
@@ -207,6 +219,108 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
 
         #endregion
 
+
+
+        public CommandModel<ReactiveCommand, String> CommandGenerateResultFileByWebApi
+        {
+            get { return _CommandGenerateResultFileByWebApiLocator(this).Value; }
+            set { _CommandGenerateResultFileByWebApiLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandGenerateResultFileByWebApi Setup        
+
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandGenerateResultFileByWebApi = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandGenerateResultFileByWebApiLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandGenerateResultFileByWebApiLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandGenerateResultFileByWebApi", model => model.Initialize("CommandGenerateResultFileByWebApi", ref model._CommandGenerateResultFileByWebApi, ref _CommandGenerateResultFileByWebApiLocator, _CommandGenerateResultFileByWebApiDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandGenerateResultFileByWebApiDefaultValueFactory =
+            model =>
+            {
+                var state = "CommandGenerateResultFileByWebApi";           // Command state  
+                var commandId = "CommandGenerateResultFileByWebApi";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
+
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            //Todo: Add GenerateResultFileByWebApi logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
+
+                var cmdmdl = cmd.CreateCommandModel(state);
+
+                cmdmdl.ListenToIsUIBusy(
+                    model: vm,
+                    canExecuteWhenBusy: false);
+                return cmdmdl;
+            };
+
+        #endregion
+
+        #region private methods
+
+        private IWorkbook ReadFile(string filePath)
+        {
+            IWorkbook wk = null;
+            string extension = System.IO.Path.GetExtension(filePath);
+            try
+            {
+                FileStream fs = File.OpenRead(filePath);
+                if (extension.Equals(".xls"))
+                {
+                    wk = new HSSFWorkbook(fs);
+                }
+                else
+                {
+                    wk = new XSSFWorkbook(fs);
+                }
+
+                fs.Close();
+                return wk;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private List<EmployeeInfo> GetEmployeeList()
+        {
+            List<EmployeeInfo> list = new List<EmployeeInfo>();
+            try
+            {
+                IWorkbook workbookSource = this.ReadFile(SourceDataFilePath);
+                ISheet sheet = workbookSource.GetSheetAt(0);
+                for (int i = 1; i <= sheet.LastRowNum; i++)
+                {
+                    IRow row = sheet.GetRow(i);
+                    if (row != null)
+                    {
+                        EmployeeInfo info = new EmployeeInfo();
+                       info.FirstName = row.GetCell(0).StringCellValue.Trim();
+                        info.LastName = row.GetCell(1).StringCellValue.Trim();
+                        int annualSalary = 0;
+                        int.TryParse(row.GetCell(2).NumericCellValue.ToString(), out annualSalary);
+                        info.AnnualSalary = annualSalary;
+                        info.SuperRate = row.GetCell(3).NumericCellValue;
+                        
+
+
+                        list.Add(info);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "错误", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            return list;
+        }
+        #endregion
 
 
         #region Life Time Event Handling

@@ -162,9 +162,22 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Template\Template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\EmployeePayslipCalculator.Models\EmployeePayslipCalculator.Models.csproj">
+      <Project>{c0863fc7-6230-4b7f-b1b3-51d4f727133a}</Project>
+      <Name>EmployeePayslipCalculator.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\EmployeePayslipCalculator.Service\EmployeePayslipCalculator.Service.csproj">
+      <Project>{db5e6f41-1c66-4cb6-abf6-07887bc8c180}</Project>
+      <Name>EmployeePayslipCalculator.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="e:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('e:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
