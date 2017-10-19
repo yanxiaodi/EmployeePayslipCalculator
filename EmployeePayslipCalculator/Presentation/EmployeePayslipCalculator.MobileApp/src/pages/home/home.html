@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <h2 padding>Welcome to Employee Salary Calculator!</h2>
+    <form #mainForm="ngForm" novalidate>
+        <ion-list>
+
+            <ion-item>
+                <ion-label floating>First Name</ion-label>
+                <ion-input type="text" [(ngModel)]="employee.firstName" name="firstNameControl" #firstNameControl="ngModel" required></ion-input>
+            </ion-item>
+            <p ion-text [hidden]="firstNameControl.valid || submitted == false" color="danger" padding-left>
+                Please input the first name.
+            </p>
+            <ion-item>
+                <ion-label floating>Last Name</ion-label>
+                <ion-input type="text" [(ngModel)]="employee.lastName" name="lastNameControl" #lastNameControl="ngModel" required></ion-input>
+            </ion-item>
+            <p ion-text [hidden]="lastNameControl.valid || submitted == false" color="danger" padding-left>
+                Please input the last name.
+            </p>
+            <ion-item>
+                <ion-label floating>Annual Salary</ion-label>
+                <ion-input type="text" [(ngModel)]="employee.annualSalary" name="annualSalaryControl" #annualSalaryControl="ngModel" required></ion-input>
+            </ion-item>
+            <p ion-text [hidden]="annualSalaryControl.valid || submitted == false" color="danger" padding-left>
+                Please input the annual salary.
+            </p>
+            <ion-item>
+                <ion-label floating>Super Rate</ion-label>
+                <ion-input type="text" [(ngModel)]="superRate" name="superRateControl" #superRateControl="ngModel" required></ion-input>
+            </ion-item>
+            <p ion-text [hidden]="superRateControl.valid || submitted == false" color="danger" padding-left>
+                Please input the super rate.
+            </p>
+            <ion-item>
+                <ion-label>Month</ion-label>
+                <ion-select [(ngModel)]="selectedMonth" name="monthControl" #monthControl="ngModel" required>
+                    <ion-option *ngFor="let item of months" value="{{item.value}}">{{item.label}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <div padding>
+                <button ion-button block (click)="calculate(mainForm)">Calculate</button>
+            </div>
+        </ion-list>
+    </form>
+</ion-content>
