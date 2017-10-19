@@ -6,12 +6,6 @@ export class GlobalContextService {
   /**API url */
   public server = 'http://localhost:58258/api/';
 
-  public CONFIGURATION = {
-    baseUrls: {
-      server: 'http://localhost:4200'
-    },
-  };
-
   public messages: Message[] = [];
 
 
