@@ -22,7 +22,7 @@
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="12,4,12,0" VerticalAlignment="Top" Width="264" Text="{Binding ResultOutputPath}"/>
                 <Button  Content="Select Path" HorizontalAlignment="Left" Margin="12,0" VerticalAlignment="Center" Width="75" Command="{Binding CommandSelectResultOutputPath}"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,12,0,0">
                 <Button  Content="Generate Result" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" Width="173" Command="{Binding CommandGenerateResultFile}"/>
 
             </StackPanel>

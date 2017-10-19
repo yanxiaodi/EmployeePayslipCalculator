@@ -27,7 +27,11 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
             {
                 Title = "Title is a little different in Design mode";
             }
-
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            //openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "Excel Files (*.xlsx,*.xls)|*.xlsx;*.xls";
+            openFileDialog.FilterIndex = 0;
+            openFileDialog.RestoreDirectory = false;
         }
 
 
@@ -41,7 +45,7 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
         #region Property String Title Setup
         protected Property<String> _Title = new Property<String> { LocatorFunc = _TitleLocator };
         static Func<BindableBase, ValueContainer<String>> _TitleLocator = RegisterContainerLocator<String>("Title", model => model.Initialize("Title", ref model._Title, ref _TitleLocator, _TitleDefaultValueFactory));
-        static Func<String> _TitleDefaultValueFactory = () => "Title is Here";
+        static Func<String> _TitleDefaultValueFactory = () => "Welcome to Employee Salary Calculator";
         #endregion
 
 
