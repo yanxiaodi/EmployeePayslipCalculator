@@ -1,6 +1,6 @@
 # EmployeePayslipCalculator
 
-## Intruduction
+## Introduction
 
 Employee Payslip Calculator demo. It shows how to implement a Web API to calculate the employee payslip. The solution contains these projects:
 
@@ -15,7 +15,7 @@ Employee Payslip Calculator demo. It shows how to implement a Web API to calcula
     * EmployeePayslipCalculator.WebApp
     * EmployeePayslipCalculator.MobileApp
 
-According to the requirements, I need to calculate the employee salary by different rates. The core function for this goal is not very difficult, and I should use a simple factory to create different `TaxCalculator` class instances. But I would like to simulate the reality so I develope a web api based on the `Service` project. So I can use different clients, including the web app, the mobile app, and the WPF app, to call the api. In the same time, I must make sure all the codes to be robust, and have the ability to deal with any wrong inputs. I need test projects, and validate all the input value from the user. From my perspective, this demo should demonstrate some main coding principles, such as:
+According to the requirements, I need to calculate the employee salary by different rates. The core function for this goal is not very difficult, and I should use a simple factory to create different `TaxCalculator` class instances. But I would like to simulate the reality so I developed a web api based on the `Service` project. So I can use different clients, including the web app, the mobile app, and the WPF app, to call the api. In the same time, I must make sure all the codes to be robust, and have the ability to deal with any wrong inputs. I need test projects, and validate all the input value from the user. From my perspective, this demo should demonstrate some main coding principles, such as:
 
 * Abstraction
 * Inheritance
@@ -34,13 +34,13 @@ The `Domain` folder contains the core models and business logic.
 
 ### Models
 
-`EmployeePayslipCalculator.Models` project is a very simple project. According the requirement, I use the `EmployeeInfo` class to indicate the Employee model, and the `PayslipInfo` to represent the Payslip model. I also create the `ResponseResult` class to encapsulate the response of the web api.
+`EmployeePayslipCalculator.Models` project is a very simple project. According to the requirement, I use the `EmployeeInfo` class to indicate the Employee model, and the `PayslipInfo` to represent the Payslip model. I also create the `ResponseResult` class to encapsulate the response of the web api.
 
 ### Service
 
 `EmployeePayslipCalculator.Service` project is the logic layer.
 
-First, I creat a abstract class named `TaxCalculatorBase`, which receives a int value param to set the `AnnualSalary` property. The `CalculateTax` method is a virtual method so the derived classed must override it.
+First, I create an abstract class named `TaxCalculatorBase`, which receives an int value param to set the `AnnualSalary` property. The `CalculateTax` method is a virtual method so the derived classed must override it.
 
 Then I create several different classes that inherit from the abstract base class in the `Impl` folder. For this purpose, I need to use a simple factory named `TaxCalculatorFactory` to create the instance, not create the specific instance in the caller class. So in the `PayslipCalculatorService` class, I can call the method in the instance class, as shown below:
 
@@ -55,7 +55,7 @@ There is another thing to note. When I convert a double value to the int value, 
 
 I use `int.TryParse()` method because it is more safe than `int.Parse()`.
 
-For robustly, I also add some code for checking the value. If the param value is illegal, the service will throw a exception.
+For robustly, I also add some code for checking the value. If the param value is illegal, the service will throw an exception.
 
 In the service code, I implement 2 methods to calculate a single employee and a employees list. So it makes the service more flexible.
 
@@ -65,9 +65,9 @@ In fact, I found a mistake by testing in my development process, since I typed a
 
 ## Service
 
-This folder contain 2 projects. 
+This folder contains 2 projects. 
 
-`EmployeePayslipCalculator.WebApi` is a ASP.NET Core project. It expose a web api to the callers. Any clients can use this api through the HTTP protocal. This architecture is more and more popular in modern software development.
+`EmployeePayslipCalculator.WebApi` is an ASP.NET Core project. It exposes a web api to the callers. Any clients can use this api through the HTTP protocol. This architecture is more and more popular in modern software development.
 
 First, I use this code shown below to inject an instance of `PayslipCalculatorService` in the `ConfigureServices` method of `Startup` class:
 
@@ -85,7 +85,7 @@ public CalculatorController(PayslipCalculatorService service)
 
 This is a kind of Dependency Injection, we can call it `Constructor Injection`.
 
-I create a Action named `Calculate` to receive the params, like this:
+I create an Action named `Calculate` to receive the params, like this:
 
 ```
         [HttpPost]
@@ -103,7 +103,7 @@ Another Action is for batch calculation:
 
 I use `EmployeePayslipCalculator.WebApi.Test` project to test the api. By comparison to the `EmployeePayslipCalculator.Service.Test` project, I use Microsoft Test Framework to do the test. They have many similarities and all of them are easy to use.
 
-In our real projects, we should use log system for the api. But this is just a demo, so I didn't use log. If the burden of the api become more heavy, we should scale up or scale out the api to face a great many requests. We can also use MQ, like RabbitMQ, to improve the reliability of the api.
+In our real projects, we should use log system for the api. But this is just a demo, so I didn't use log. If the burden of the api become heavier, we should scale up or scale out the api to face a great many requests. We can also use MQ, like RabbitMQ, to improve the reliability of the api.
 
 ## Presentation
 
@@ -113,11 +113,11 @@ I would like to use some different client apps to call the api, including the we
 
 `EmployeePayslipCalculator.WebApp` is an Angular project. I like Angular and TypeScript since they can improve my work efficiency.
 
-An Angular app must have some resonable layers design. I create a service named `HttpClientService` to encapsulate the HTTP api of Angular. So I can easily get a response model from the api. The main service is the `CalculatorService` class. It's very simple that just contains a few codes.
+An Angular app must have some reasonable layers design. I create a service named `HttpClientService` to encapsulate the HTTP api of Angular. So I can easily get a response model from the api. The main service is the `CalculatorService` class. It's very simple that just contains a few codes.
 
-The challenge for the front-end app is dealing with the inputs from the users. That's a crucial factor to determine whether the app is robust. I create a single method named `checkInput()` to check the values except the validators of ngForm.
+The challenge for the front-end app is dealing with the inputs from the users. That's a crucial factor to determine whether the app is robust. I create a single method named `checkInput()` to check the values except for the validators of ngForm.
 
-I use PrimeNG for the UI presentation. It is a good UI framework for Angular app and easy to use, just like jQuery UI.
+I use PrimeNG for the UI presentation. It is a good UI framework for the Angular apps and easy to use, just like jQuery UI.
 
 ### Mobile App
 
