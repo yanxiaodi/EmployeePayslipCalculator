@@ -36,7 +36,7 @@ export class HomePage {
     this.selectedMonth = 1;
   }
 
-  create(form: NgForm) {
+  calculate(form: NgForm) {
     this.submitted = true;
     if (form.valid) {
     }

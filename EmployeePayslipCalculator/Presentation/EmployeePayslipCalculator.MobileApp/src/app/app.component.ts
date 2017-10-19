@@ -4,7 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
-
+// Add the RxJS Observable operators we need in this app.
+import '../rxjs-operators';
 @Component({
   templateUrl: 'app.html'
 })
