@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
   }
 
   checkInput(): boolean {
-    let isValid = true;
+    const isValid = true;
     if (this.employee.firstName === '' || this.employee.firstName === null || this.employee.firstName === undefined) {
       this.globalContextService.showWarnMessage('Please input the first name!');
       return false;
@@ -80,31 +80,27 @@ export class HomeComponent implements OnInit {
       this.globalContextService.showWarnMessage('Please input the last name!');
       return false;
     }
-    try {
+
+    if (Number.isInteger(Number.parseInt(this.employee.annualSalary.toString()))) {
       this.employee.annualSalary = Number.parseInt(this.employee.annualSalary.toString());
       if (this.employee.annualSalary <= 0) {
         this.globalContextService.showWarnMessage('The annual salary must be more than 0!');
         return false;
       }
-    } catch (ex) {
-      isValid = false;
+    } else {
       this.globalContextService.showWarnMessage('Please input a valid number for annual salary!');
-      console.log(ex);
+      return false;
     }
-    try {
+    if (!Number.isNaN(Number.parseFloat(this.superRate.toString()))) {
       this.employee.superRate = Number.parseFloat(this.superRate.toString()) / 100;
       if (this.employee.superRate < 0 || this.employee.superRate > 0.5) {
         this.globalContextService.showWarnMessage('The super rate must be between 0 and 0.5!');
         return false;
       }
-    } catch (ex) {
-      isValid = false;
+    } else {
       this.globalContextService.showWarnMessage('Please input a valid number for super rate!');
-      console.log(ex);
-      return;
+      return false;
     }
-    console.log(this.employee);
-    console.log(this.selectedMonth);
     return isValid;
   }
 

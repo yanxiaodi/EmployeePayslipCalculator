@@ -31,7 +31,7 @@
                 Please input the annual salary.
             </p>
             <ion-item>
-                <ion-label floating>Super Rate</ion-label>
+                <ion-label floating>Super Rate (%)</ion-label>
                 <ion-input type="text" [(ngModel)]="superRate" name="superRateControl" #superRateControl="ngModel" required></ion-input>
             </ion-item>
             <p ion-text [hidden]="superRateControl.valid || submitted == false" color="danger" padding-left>

@@ -1,5 +1,8 @@
+import { ShowResultPage } from './../pages/show-result/show-result';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
@@ -18,10 +21,12 @@ import { GlobalContextService, HttpClientService, CalculatorService } from '../p
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ShowResultPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -30,7 +35,8 @@ import { GlobalContextService, HttpClientService, CalculatorService } from '../p
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ShowResultPage
   ],
   providers: [
     StatusBar,
