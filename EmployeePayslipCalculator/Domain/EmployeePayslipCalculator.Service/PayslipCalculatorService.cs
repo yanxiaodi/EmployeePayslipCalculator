@@ -25,7 +25,7 @@ namespace EmployeePayslipCalculator.Service
             result.Employee = employee;
             result.PayPeriod = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month);
             result.GrossIncome = Utils.ConvertToInt(employee.AnnualSalary / 12);
-            result.IncomeTax = TaxCalculatorFactory.Instance.CreateTaxCalculator(employee.AnnualSalary).CalculateTax();
+            result.IncomeTax = TaxCalculatorFactory.CreateTaxCalculator(employee.AnnualSalary).CalculateTax();
             result.NetIncome = result.GrossIncome - result.IncomeTax;
             result.Super = Utils.ConvertToInt(result.GrossIncome * employee.SuperRate);
             return result;

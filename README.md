@@ -40,13 +40,13 @@ The `Domain` folder contains the core models and business logic.
 
 `EmployeePayslipCalculator.Service` project is the logic layer.
 
-First, I create an abstract class named `TaxCalculatorBase`, which receives an int value param to set the `AnnualSalary` property. The `CalculateTax` method is a virtual method so the derived classed must override it.
+First I create an abstract class named `TaxCalculatorBase`, which receives an int value param to set the `AnnualSalary` property. The `CalculateTax` method is a virtual method so the derived classed must override it.
 
 Then I create several different classes that inherit from the abstract base class in the `Impl` folder. For this purpose, I need to use a simple factory named `TaxCalculatorFactory` to create the instance, not create the specific instance in the caller class. So in the `PayslipCalculatorService` class, I can call the method in the instance class, as shown below:
 
 `TaxCalculatorFactory.Instance.CreateTaxCalculator(employee.AnnualSalary).CalculateTax();`
 
-If we need to add some other tax rate algorithm, I just add the new derived classes and modify the factory, and the code in the `PayslipCalculatorService` doesn't need to change. This is the benefit of the factory, which is the simplest design pattern, but very useful.
+If we need to add some other tax rate algorithm, I just add the new derived classes and modify the factory, and the code in the `PayslipCalculatorService` does not need to change. This is the benefit of the factory, which is the simplest design pattern, but very useful.
 
 There is another thing to note. When I convert a double value to the int value, I need to use `Math.Round()` method. But be careful, we must pass the `MidpointRounding` enum as a param to ensure the accuracy, as shown below:
 
@@ -55,17 +55,17 @@ There is another thing to note. When I convert a double value to the int value, 
 
 I use `int.TryParse()` method because it is more safe than `int.Parse()`.
 
-For robustly, I also add some code for checking the value. If the param value is illegal, the service will throw an exception.
+To make the programe more robust, I also add some code for checking the value. If the param value is illegal, the service will throw an exception, then the caller will catch the exception and deal with it.
 
-In the service code, I implement 2 methods to calculate a single employee and a employees list. So it makes the service more flexible.
+In the service code, I implement two methods to calculate a single employee and an employees list. So it makes the service more flexible.
 
-The `EmployeePayslipCalculator.Service.Test` project is the unit test. I use xUnit framework, which is a good test framework for testing. I can create more test codes but for demonstration, it's enough.
+The `EmployeePayslipCalculator.Service.Test` project is the unit test. I use xUnit framework, which is a good test framework for testing. I can create more test codes but for demonstration, it is enough.
 
 In fact, I found a mistake by testing in my development process, since I typed a wrong number. So testing is very important for software development.
 
 ## Service
 
-This folder contains 2 projects. 
+This folder contains two projects. 
 
 `EmployeePayslipCalculator.WebApi` is an ASP.NET Core project. It exposes a web api to the callers. Any clients can use this api through the HTTP protocol. This architecture is more and more popular in modern software development.
 
@@ -74,7 +74,7 @@ First, I use this code shown below to inject an instance of `PayslipCalculatorSe
 `services.AddSingleton(typeof(PayslipCalculatorService), new PayslipCalculatorService());
 `
 
-So I'm able to use this service in the controller like this:
+So I am able to use this service in the controller like this:
 
 ```
 public CalculatorController(PayslipCalculatorService service)
@@ -103,7 +103,7 @@ Another Action is for batch calculation:
 
 I use `EmployeePayslipCalculator.WebApi.Test` project to test the api. By comparison to the `EmployeePayslipCalculator.Service.Test` project, I use Microsoft Test Framework to do the test. They have many similarities and all of them are easy to use.
 
-In our real projects, we should use log system for the api. But this is just a demo, so I didn't use log. If the burden of the api become heavier, we should scale up or scale out the api to face a great many requests. We can also use MQ, like RabbitMQ, to improve the reliability of the api.
+In our real projects, we should use the log system for the api. But this is just a demo, so I did not use the log. If the burden of the api become heavier, we should scale up or scale out the api to face a great many requests. We can also use MQ, such as RabbitMQ, to improve the reliability of the api.
 
 ## Presentation
 
@@ -111,17 +111,17 @@ I would like to use some different client apps to call the api, including the we
 
 ### Web App
 
-`EmployeePayslipCalculator.WebApp` is an Angular project. I like Angular and TypeScript since they can improve my work efficiency.
+`EmployeePayslipCalculator.WebApp` is an Angular project. I preter to use Angular and TypeScript since they are efficient.
 
-An Angular app must have some reasonable layers design. I create a service named `HttpClientService` to encapsulate the HTTP api of Angular. So I can easily get a response model from the api. The main service is the `CalculatorService` class. It's very simple that just contains a few codes.
+An Angular app must have some reasonable layers design. I create a service named `HttpClientService` to encapsulate the HTTP api of Angular. So I can easily get a response model from the api. The main service is the `CalculatorService` class. It is very simple that just contains a few codes.
 
-The challenge for the front-end app is dealing with the inputs from the users. That's a crucial factor to determine whether the app is robust. I create a single method named `checkInput()` to check the values except for the validators of ngForm.
+The challenge for the front-end app is dealing with the inputs from the users. That is a crucial factor to determine whether the app is robust. I create a single method named `checkInput()` to check the values except for the validators of ngForm.
 
 I use PrimeNG for the UI presentation. It is a good UI framework for the Angular apps and easy to use, just like jQuery UI.
 
 ### Mobile App
 
-Cross-Platform development is more and more popular now. I use Ionic Framework to create the Cordova app. It's elegant and very easy to use. I reuse many codes of `EmployeePayslipCalculator.WebApp`, such as models, services, and check methods, etc. 
+Cross-Platform development is more and more popular now. I use Ionic Framework to create the Cordova app. It is elegant and very easy to use. I reuse many codes of `EmployeePayslipCalculator.WebApp`, such as models, services, and check methods, etc. 
 
 You can compile it for different platforms, including iOS, Android, UWP, or just run it as a web app in the browser.
 

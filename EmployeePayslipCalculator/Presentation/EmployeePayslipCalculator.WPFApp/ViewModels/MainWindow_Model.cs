@@ -18,6 +18,7 @@ using System.IO;
 using NPOI.HSSF.UserModel;
 using NPOI.XSSF.UserModel;
 using EmployeePayslipCalculator.Models;
+using EmployeePayslipCalculator.Service;
 
 namespace EmployeePayslipCalculator.WPFApp.ViewModels
 {
@@ -38,6 +39,25 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
             openFileDialog.Filter = "Excel Files (*.xlsx,*.xls)|*.xlsx;*.xls";
             openFileDialog.FilterIndex = 0;
             openFileDialog.RestoreDirectory = false;
+            this.SetMonths();
+        }
+
+        private void SetMonths()
+        {
+            this.Months = new Dictionary<string, int>();
+            this.Months.Add("January", 1);
+            this.Months.Add("February ", 2);
+            this.Months.Add("March", 3);
+            this.Months.Add("April", 4);
+            this.Months.Add("May", 5);
+            this.Months.Add("June", 6);
+            this.Months.Add("July", 7);
+            this.Months.Add("August", 8);
+            this.Months.Add("September", 9);
+            this.Months.Add("October", 10);
+            this.Months.Add("November", 11);
+            this.Months.Add("December", 12);
+            this.SelectMonth = 1;
         }
 
 
@@ -59,6 +79,33 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
         #region properties
 
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+
+
+
+        public Dictionary<string, int> Months
+        {
+            get { return _MonthsLocator(this).Value; }
+            set { _MonthsLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property Dictionary<string, int> Months Setup        
+        protected Property<Dictionary<string, int>> _Months = new Property<Dictionary<string, int>> { LocatorFunc = _MonthsLocator };
+        static Func<BindableBase, ValueContainer<Dictionary<string, int>>> _MonthsLocator = RegisterContainerLocator<Dictionary<string, int>>("Months", model => model.Initialize("Months", ref model._Months, ref _MonthsLocator, _MonthsDefaultValueFactory));
+        static Func<Dictionary<string, int>> _MonthsDefaultValueFactory = () => default(Dictionary<string, int>);
+        #endregion
+
+
+
+        public int SelectMonth
+        {
+            get { return _SelectMonthLocator(this).Value; }
+            set { _SelectMonthLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property int SelectMonth Setup        
+        protected Property<int> _SelectMonth = new Property<int> { LocatorFunc = _SelectMonthLocator };
+        static Func<BindableBase, ValueContainer<int>> _SelectMonthLocator = RegisterContainerLocator<int>("SelectMonth", model => model.Initialize("SelectMonth", ref model._SelectMonth, ref _SelectMonthLocator, _SelectMonthDefaultValueFactory));
+        static Func<int> _SelectMonthDefaultValueFactory = () => default(int);
+        #endregion
+
 
 
         public string SourceDataFilePath
@@ -203,7 +250,16 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
                                 MessageBox.Show("Please select the source data file and the output path", "Warning！", MessageBoxButton.OK, MessageBoxImage.Warning);
                                 return;
                             }
-                            List<EmployeeInfo> list = vm.GetEmployeeList();
+                            try
+                            {
+                                List<EmployeeInfo> list = vm.GetEmployeeList();
+                                List<PayslipInfo> result = MVVMSidekick.Services.ServiceLocator.Instance.Resolve<PayslipCalculatorService>().Calculate(list, vm.SelectMonth);
+                                vm.GenerateResult(result);
+                            }
+                            catch(Exception ex)
+                            {
+                                MessageBox.Show("Error occured!", "Error！", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
                         })
                     .DoNotifyDefaultEventRouter(vm, commandId)
                     .Subscribe()
@@ -290,35 +346,66 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
         private List<EmployeeInfo> GetEmployeeList()
         {
             List<EmployeeInfo> list = new List<EmployeeInfo>();
-            try
+            IWorkbook workbookSource = this.ReadFile(SourceDataFilePath);
+            ISheet sheet = workbookSource.GetSheetAt(0);
+            for (int i = 1; i <= sheet.LastRowNum; i++)
             {
-                IWorkbook workbookSource = this.ReadFile(SourceDataFilePath);
-                ISheet sheet = workbookSource.GetSheetAt(0);
-                for (int i = 1; i <= sheet.LastRowNum; i++)
+                IRow row = sheet.GetRow(i);
+                if (row != null)
                 {
-                    IRow row = sheet.GetRow(i);
-                    if (row != null)
-                    {
-                        EmployeeInfo info = new EmployeeInfo();
-                       info.FirstName = row.GetCell(0).StringCellValue.Trim();
-                        info.LastName = row.GetCell(1).StringCellValue.Trim();
-                        int annualSalary = 0;
-                        int.TryParse(row.GetCell(2).NumericCellValue.ToString(), out annualSalary);
-                        info.AnnualSalary = annualSalary;
-                        info.SuperRate = row.GetCell(3).NumericCellValue;
-                        
-
-
-                        list.Add(info);
-                    }
+                    EmployeeInfo info = new EmployeeInfo();
+                    info.FirstName = row.GetCell(0).StringCellValue.Trim();
+                    info.LastName = row.GetCell(1).StringCellValue.Trim();
+                    int annualSalary = 0;
+                    int.TryParse(row.GetCell(2).NumericCellValue.ToString(), out annualSalary);
+                    info.AnnualSalary = annualSalary;
+                    info.SuperRate = row.GetCell(3).NumericCellValue;
+                    list.Add(info);
                 }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "错误", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             return list;
+        }
+
+        private void GenerateResult(List<PayslipInfo> list)
+        {
+            IWorkbook workbookSource = this.ReadFile(SourceDataFilePath);
+            ISheet sheet = workbookSource.GetSheetAt(0);
+            for (int i = 1; i <= sheet.LastRowNum; i++)
+            {
+                IRow row = sheet.GetRow(i);
+                if (row != null)
+                {
+                    //EmployeeInfo info = new EmployeeInfo();
+                    //info.FirstName = row.GetCell(0).StringCellValue.Trim();
+                    //info.LastName = row.GetCell(1).StringCellValue.Trim();
+                    //int annualSalary = 0;
+                    //int.TryParse(row.GetCell(2).NumericCellValue.ToString(), out annualSalary);
+                    //info.AnnualSalary = annualSalary;
+                    //info.SuperRate = row.GetCell(3).NumericCellValue;
+                    PayslipInfo info = list[i - 1];
+                    for (int j = 4; j < 10; j++)
+                    {
+                        ICell cell = row.GetCell(j);
+                        if(cell == null)
+                        {
+                            row.CreateCell(j);
+                        }
+                    }
+                    row.GetCell(4).SetCellValue(info.Employee.FullName);
+                    row.GetCell(5).SetCellValue(info.PayPeriod);
+                    row.GetCell(6).SetCellValue(info.GrossIncome);
+                    row.GetCell(7).SetCellValue(info.IncomeTax);
+                    row.GetCell(8).SetCellValue(info.NetIncome);
+                    row.GetCell(9).SetCellValue(info.Super);
+                }
+            }
+            using (FileStream file = new FileStream(Path.Combine(this.ResultOutputPath, "EmployeeSalaryData" + "_" + Guid.NewGuid().ToString().GetHashCode() + ".xlsx"), FileMode.Create))
+            {
+                workbookSource.Write(file);
+                file.Close();
+                MessageBox.Show("Done!", "OK", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
         }
         #endregion
 
