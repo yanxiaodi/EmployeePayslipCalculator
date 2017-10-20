@@ -6,23 +6,10 @@ using System.Text;
 
 namespace EmployeePayslipCalculator.Service
 {
-    public sealed class TaxCalculatorFactory
+    public static class TaxCalculatorFactory
     {
-        static readonly TaxCalculatorFactory instance = new TaxCalculatorFactory();
-        static TaxCalculatorFactory() { }
-        TaxCalculatorFactory()
-        {
-
-        }
-
-        public static TaxCalculatorFactory Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
-        public TaxCalculatorBase CreateTaxCalculator(int annualSalary)
+        
+        public static TaxCalculatorBase CreateTaxCalculator(int annualSalary)
         {
             if (annualSalary <= 0)
             {
@@ -30,7 +17,7 @@ namespace EmployeePayslipCalculator.Service
             }
             else if (annualSalary <= 18200)
             {
-                return new TaxCalculatorLevel1();
+                return new TaxCalculatorLevel1(annualSalary);
             }
             else if (annualSalary <= 37000)
             {

@@ -7,7 +7,10 @@ namespace EmployeePayslipCalculator.Service.Impl
 {
     public class TaxCalculatorLevel1 : TaxCalculatorBase
     {
+        public TaxCalculatorLevel1(int annualSalary) : base(annualSalary)
+        {
 
+        }
         public override int CalculateTax()
         {
             return 0;

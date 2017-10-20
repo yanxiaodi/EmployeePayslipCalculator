@@ -7,7 +7,6 @@ namespace EmployeePayslipCalculator.Service.Impl
 {
     public class TaxCalculatorLevel5 : TaxCalculatorBase
     {
-        public TaxCalculatorLevel5() { }
         public TaxCalculatorLevel5(int annualSalary) : base(annualSalary)
         {
 
