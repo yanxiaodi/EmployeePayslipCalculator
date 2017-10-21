@@ -19,6 +19,8 @@ using NPOI.HSSF.UserModel;
 using NPOI.XSSF.UserModel;
 using EmployeePayslipCalculator.Models;
 using EmployeePayslipCalculator.Service;
+using EmployeePayslipCalculator.WPFApp.Services;
+using EmployeePayslipCalculator.WPFApp.Utils;
 
 namespace EmployeePayslipCalculator.WPFApp.ViewModels
 {
@@ -245,20 +247,19 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
                         {
                             //Todo: Add GenerateResultFile logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                            if (string.IsNullOrEmpty(vm.SourceDataFilePath) || string.IsNullOrEmpty(vm.ResultOutputPath))
+                            if (vm.CheckParams())
                             {
-                                MessageBox.Show("Please select the source data file and the output path", "Warning！", MessageBoxButton.OK, MessageBoxImage.Warning);
-                                return;
-                            }
-                            try
-                            {
-                                List<EmployeeInfo> list = vm.GetEmployeeList();
-                                List<PayslipInfo> result = MVVMSidekick.Services.ServiceLocator.Instance.Resolve<PayslipCalculatorService>().Calculate(list, vm.SelectMonth);
-                                vm.GenerateResult(result);
-                            }
-                            catch(Exception ex)
-                            {
-                                MessageBox.Show("Error occured!", "Error！", MessageBoxButton.OK, MessageBoxImage.Error);
+                                try
+                                {
+                                    List<EmployeeInfo> list = vm.GetEmployeeList();
+                                    List<PayslipInfo> result = MVVMSidekick.Services.ServiceLocator.Instance.Resolve<PayslipCalculatorService>().Calculate(list, vm.SelectMonth);
+                                    vm.GenerateResult(result);
+                                }
+                                catch (Exception ex)
+                                {
+                                    //TODO log the exception.
+                                    MessageBox.Show("Error occured!", "Error！", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
                             }
                         })
                     .DoNotifyDefaultEventRouter(vm, commandId)
@@ -300,6 +301,30 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
                         {
                             //Todo: Add GenerateResultFileByWebApi logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                            if (vm.CheckParams())
+                            {
+                                try
+                                {
+                                    List<EmployeeInfo> list = vm.GetEmployeeList();
+                                    // In this method, I use web api to calculate the result.
+                                    var response = await WebApiService.Instance.PostJsonData<List<EmployeeInfo> ,ResponseResult<List<PayslipInfo>>>(new Uri($"{ConfigHelper.Instance.ServerUrl}Calculator/BatchCalculate?month=${vm.SelectMonth}"), list);
+                                    if (response.IsSuccess)
+                                    {
+                                        List<PayslipInfo> result = response.Result;
+                                        vm.GenerateResult(result);
+                                    }
+                                    else
+                                    {
+                                        //TODO log the error.
+                                        MessageBox.Show("Error occured!", "Error！", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    //TODO log the exception.
+                                    MessageBox.Show("Error occured!", "Error！", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
+                            }
                         })
                     .DoNotifyDefaultEventRouter(vm, commandId)
                     .Subscribe()
@@ -316,6 +341,19 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
         #endregion
 
         #region private methods
+
+        private bool CheckParams()
+        {
+            if (string.IsNullOrEmpty(SourceDataFilePath) || string.IsNullOrEmpty(ResultOutputPath))
+            {
+                MessageBox.Show("Please select the source data file and the output path", "Warning！", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         private IWorkbook ReadFile(string filePath)
         {
@@ -375,13 +413,6 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
                 IRow row = sheet.GetRow(i);
                 if (row != null)
                 {
-                    //EmployeeInfo info = new EmployeeInfo();
-                    //info.FirstName = row.GetCell(0).StringCellValue.Trim();
-                    //info.LastName = row.GetCell(1).StringCellValue.Trim();
-                    //int annualSalary = 0;
-                    //int.TryParse(row.GetCell(2).NumericCellValue.ToString(), out annualSalary);
-                    //info.AnnualSalary = annualSalary;
-                    //info.SuperRate = row.GetCell(3).NumericCellValue;
                     PayslipInfo info = list[i - 1];
                     for (int j = 4; j < 10; j++)
                     {
@@ -399,7 +430,7 @@ namespace EmployeePayslipCalculator.WPFApp.ViewModels
                     row.GetCell(9).SetCellValue(info.Super);
                 }
             }
-            using (FileStream file = new FileStream(Path.Combine(this.ResultOutputPath, "EmployeeSalaryData" + "_" + Guid.NewGuid().ToString().GetHashCode() + ".xlsx"), FileMode.Create))
+            using (FileStream file = new FileStream(Path.Combine(this.ResultOutputPath, "EmployeeSalaryData" + Guid.NewGuid().ToString().GetHashCode() + ".xlsx"), FileMode.Create))
             {
                 workbookSource.Write(file);
                 file.Close();
