@@ -227,7 +227,7 @@ The second button can get the result through the web api, which must be run firs
 
 This demo is not a difficult problem to solve but I must be careful to make a better application. To be a professional developer, it is not enough to just solve the main problem. We must design the architecture to make it can response the new requirement quickly. For example, to deal with the potential tax rate changes, we must use the factory pattern to separate the core business code from the caller code.
 
-The unit test can confirm our code can run the way as we expect. They also reduce the risk for the changing and refactoring. I just write some simple unit tests because this is a demo. In fact, TDD is widely used in modern software development. Maybe we need much time at the beginning, but it is worth to do it.
+The unit test can confirm our code can run the way as we expect. They also reduce the risk for the changing and refactoring. I just write some simple unit tests for the services project because this is a demo. In fact, TDD is widely used in modern software development. Maybe we need much time at the beginning, but it is worth to do it.
 
 We also need to make our application more beautiful and friendly. You can see that I use several different UI frameworks for different applications. For simplify the operations for the users, I should choose the suitable controls. User experience is more and more important nowadays. Fortunately, we have a lot of libraries and framework to help us.
 
