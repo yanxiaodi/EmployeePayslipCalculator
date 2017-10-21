@@ -92,7 +92,7 @@ You can adjust the chrome style through the developer tool to get the best effec
 
 If you want to compile it to iOS or Android, please reference the ionic documents:
 
-`http://ionicframework.com/docs/cli/`
+[Ionic CLI](http://ionicframework.com/docs/cli/)
 
 ### Run the wpf app
 
