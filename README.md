@@ -33,6 +33,10 @@ According to the requirements, I need to calculate the employee salary by differ
 
 ### Run the Web API
 
+Please install the .NET Core SDK 2.0 first:
+
+[.NET Core SDK 2.0](https://www.microsoft.com/net/core)
+
 Go into the `Service\EmployeePayslipCalculator.WebApi` folder, and run the command below:
 
 `dotnet restore`
@@ -60,7 +64,13 @@ If the server is running correctly, you should receive a json string like this:
 
 ### Run the web app
 
-First go into the `Presentation\EmployeePayslipCalculator.WebApp` folder and run this command:
+Please install Angular and TypeScript first:
+
+`npm install -g angular`
+
+`npm install -g typesciript`
+
+Go into the `Presentation\EmployeePayslipCalculator.WebApp` folder and run this command:
 
 `npm install`
 
@@ -75,6 +85,14 @@ You can open the url:
 to test the angular app.
 
 ### Run the cordova app
+
+Please install Ionic first. 
+
+`npm install -g ionic`
+
+You need to install Cordova if you want to compile it to the iOS or Android.
+
+`npm install -g cordova`
 
 Go into the `Presentation\EmployeePayslipCalculator.MobileApp` folder, and run this command:
 
