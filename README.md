@@ -14,6 +14,7 @@ Employee Payslip Calculator demo. It shows how to implement a Web API to calcula
 * Presentation
     * EmployeePayslipCalculator.WebApp
     * EmployeePayslipCalculator.MobileApp
+    * EmployeePayslipCalculator.WPFApp
 
 According to the requirements, I need to calculate the employee salary by different rates. The core function for this goal is not very difficult, and I should use a simple factory to create different `TaxCalculator` class instances. But I would like to simulate the reality so I developed a web api based on the `Service` project. So I can use different clients, including the web app, the mobile app, and the WPF app, to call the api. In the same time, I must make sure all the codes to be robust, and have the ability to deal with any wrong inputs. I need test projects, and validate all the input value from the user. From my perspective, this demo should demonstrate some main coding principles, such as:
 
@@ -53,7 +54,7 @@ There is another thing to note. When I convert a double value to the int value, 
 `int.TryParse(Math.Round(d, 0, MidpointRounding.AwayFromZero).ToString(), out result);
 `
 
-I use `int.TryParse()` method because it is more safe than `int.Parse()`.
+I prefer to use `int.TryParse()` method because it is more safe than `int.Parse()`.
 
 To make the programe more robust, I also add some code for checking the value. If the param value is illegal, the service will throw an exception, then the caller will catch the exception and deal with it.
 
@@ -103,7 +104,7 @@ Another Action is for batch calculation:
 
 I use `EmployeePayslipCalculator.WebApi.Test` project to test the api. By comparison to the `EmployeePayslipCalculator.Service.Test` project, I use Microsoft Test Framework to do the test. They have many similarities and all of them are easy to use.
 
-In our real projects, we should use the log system for the api. But this is just a demo, so I did not use the log. If the burden of the api become heavier, we should scale up or scale out the api to face a great many requests. We can also use MQ, such as RabbitMQ, to improve the reliability of the api.
+In our real projects, we should use the log system for the api. But this is just a demo, so I did not use the log. If the burden of the api become heavier, we should scale up or scale out the api to face a great many requests. We can also use the MQ, such as RabbitMQ, to improve the reliability of the api.
 
 ## Presentation
 
@@ -124,6 +125,48 @@ I use PrimeNG for the UI presentation. It is a good UI framework for the Angular
 Cross-Platform development is more and more popular now. I use Ionic Framework to create the Cordova app. It is elegant and very easy to use. I reuse many codes of `EmployeePayslipCalculator.WebApp`, such as models, services, and check methods, etc. 
 
 You can compile it for different platforms, including iOS, Android, UWP, or just run it as a web app in the browser.
+
+### WPF App
+
+To demonstrate how to calculate the result from the excel file, I also create a WPF application named `EmployeePayslipCalculator.WPFApp`. I use MVVMSidekick to implement the MVVM pattern. I want to show how to read an excel file to get the source data, and calculate the result from the local codes and the web api.
+
+First, you need to select the path of the excel file, which must follow the format of the template file that is in the Template folder. Do not modify the format of the excel file, otherwise, you will not get the correct result. You are allowed to input a lot of employees in the excel file. But in fact, we should set a limit. I did not do it since it is just a demo.
+
+Then please select the output file path and the salary month.
+
+To deal with the excel file, I use NPOI.NET to read and write the excel files. I encapsulate these methods to handle the excel files:
+
+`private IWorkbook ReadFile(string filePath)`
+
+`private void GenerateResult(List<PayslipInfo> list)`
+
+ You can see two buttons here. The first button is responsible for calculating the result through the `EmployeePayslipCalculator.Service` project. That is similar with the `EmployeePayslipCalculator.WebApi` project.
+
+The second button can get the result through the web api, which must be run first. I write the `WebApiService` class to simplify the use of the HttpClient, which can directly get the result as the correct type. The generic type is necessary for this requirement. I use JSON.NET to parse the json object.
+
+## Summary
+
+This demo is not a difficult problem to solve but I must be careful to make a better application. To be a professional developer, it is not enough to just solve the main problem. We must design the architecture to make it can response the new requirement quickly. For example, to deal with the potential tax rate changes, we must use the factory pattern to separate the core business code from the caller code.
+
+The unit test can confirm our code can run the way as we expect. They also reduce the risk for the changing and refactoring. I just write some simple unit tests because this is a demo. In fact, TDD is widely used in modern software development. Maybe we need much time at the beginning, but it is worth to do it.
+
+We also need to make our application more beautiful and friendly. You can see that I use several different UI frameworks for different applications. For simplify the operations for the users, I should choose the suitable controls. User experience is more and more important nowadays. Fortunately, we have a lot of libraries and framework to help us.
+
+Another important factor is that make sure our apps can handle all potential wrong inputs from the users. To gain this goal, we must check all params from the users, and throw messages to let the users to know what wrong happen. The explicit toast is neccesary for the client users.
+
+I think this demo is a clean code, and it is easy to understand, and has a reasonable architecture. Anyway, I should do more jobs to make it to be a excellent app to solve the problem, but I am too busy these days. If you have any questions about this demo, let me know please.
+
+Thank you very much.
+
+
+
+
+
+
+
+
+
+
 
 
 
