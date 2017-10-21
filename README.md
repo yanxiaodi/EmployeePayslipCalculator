@@ -29,6 +29,85 @@ According to the requirements, I need to calculate the employee salary by differ
 * Testing
 ...
 
+## How to run the solution
+
+### Run the Web API
+
+Go into the `Service\EmployeePayslipCalculator.WebApi` folder, and run the command below:
+
+`dotnet restore`
+
+Then input this command to build the web api project:
+
+`dotnet build`
+
+Use this command to run the web api:
+
+`dotnet run`
+
+Now you can open the url: 
+
+`http://localhost:58258/api/values`
+
+If the server is running correctly, you should receive a json string like this:
+
+```
+[
+"value1",
+"value2"
+]
+```
+
+### Run the web app
+
+First go into the `Presentation\EmployeePayslipCalculator.WebApp` folder and run this command:
+
+`npm install`
+
+Then input this command blow:
+
+`ng serve`
+
+You can open the url:
+
+`http://localhost:4200`
+
+to test the angular app.
+
+### Run the cordova app
+
+Go into the `Presentation\EmployeePayslipCalculator.MobileApp` folder, and run this command:
+
+`npm install`
+
+Now input this command to start the ionic app:
+
+`ionic serve`
+
+You can navigate to this url to test the cordova app:
+
+`http://localhost:8100/`
+
+You can adjust the chrome style through the developer tool to get the best effect.
+
+If you want to compile it to iOS or Android, please reference the ionic documents:
+
+`http://ionicframework.com/docs/cli/`
+
+### Run the wpf app
+
+Just compile it and run it.
+
+### Caution
+
+You must config the api address if you change the default web api host.
+
+For `EmployeePayslipCalculator.WebApp` project, please check the `global-context.service.ts` file in the `Presentation\EmployeePayslipCalculator.WebApp\src\app\services\global-context` folder.
+
+For `EmployeePayslipCalculator.MobileApp` project, please check the `global-context.service.ts` file in the `Presentation\EmployeePayslipCalculator.MobileApp\src\providers\global-context` folder.
+
+For `EmployeePayslipCalculator.WPFApp` project, you can modify the server url in the `App.config`.
+
 ## Domain
 
 The `Domain` folder contains the core models and business logic. 
