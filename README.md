@@ -16,7 +16,7 @@ Employee Payslip Calculator demo. It shows how to implement a Web API to calcula
     * EmployeePayslipCalculator.MobileApp
     * EmployeePayslipCalculator.WPFApp
 
-According to the requirements, I need to calculate the employee salary by different rates. The core function for this goal is not very difficult, and I should use a simple factory to create different `TaxCalculator` class instances. But I would like to simulate the reality so I developed a web api based on the `Service` project. So I can use different clients, including the web app, the mobile app, and the WPF app, to call the api. In the same time, I must make sure all the codes to be robust, and have the ability to deal with any wrong inputs. I need test projects, and validate all the input value from the user. From my perspective, this demo should demonstrate some main coding principles, such as:
+According to the requirements, I need to calculate the employee salary by different rates. The core function for this goal is not very difficult, and I should use a simple factory to create different `TaxCalculator` class instances. But I would like to simulate the reality so I developed a Web API based on the `Service` project. So I can use different clients, including the web app, the mobile app, and the WPF app, to call the WEB API. In the same time, I must make sure all the codes to be robust, and have the ability to deal with any wrong inputs. I need test projects, and validate all the input value from the user. From my perspective, this demo should demonstrate some main coding principles, such as:
 
 * Abstraction
 * Inheritance
@@ -41,19 +41,19 @@ Go into the `Service\EmployeePayslipCalculator.WebApi` folder, and run the comma
 
 `dotnet restore`
 
-Then input this command to build the web api project:
+Then input this command to build the Web API project:
 
 `dotnet build`
 
-Use this command to run the web api:
+Use this command to run the Web API:
 
 `dotnet run`
 
-Now you can open the url: 
+Now you can open the URL: 
 
 `http://localhost:58258/api/values`
 
-If the server is running correctly, you should receive a json string like this:
+If the server is running correctly, you should receive a JSON string like this:
 
 ```
 [
@@ -62,7 +62,7 @@ If the server is running correctly, you should receive a json string like this:
 ]
 ```
 
-### Run the web app
+### Run the Web App
 
 Please install Angular and TypeScript first:
 
@@ -74,17 +74,17 @@ Go into the `Presentation\EmployeePayslipCalculator.WebApp` folder and run this 
 
 `npm install`
 
-Then input this command blow:
+Then input this command below:
 
 `ng serve`
 
-You can open the url:
+You can open the URL:
 
 `http://localhost:4200`
 
-to test the angular app.
+to test the Angular App.
 
-### Run the cordova app
+### Run the Cordova App
 
 Please install Ionic first. 
 
@@ -102,7 +102,7 @@ Now input this command to start the ionic app:
 
 `ionic serve`
 
-You can navigate to this url to test the cordova app:
+You can navigate to this URL to test the Cordova App:
 
 `http://localhost:8100/`
 
@@ -112,19 +112,19 @@ If you want to compile it to iOS or Android, please reference the ionic document
 
 [Ionic CLI](http://ionicframework.com/docs/cli/)
 
-### Run the wpf app
+### Run the WPF app
 
 Just compile it and run it.
 
 ### Caution
 
-You must config the api address if you change the default web api host.
+You must config the API address if you change the default Web API host.
 
 For `EmployeePayslipCalculator.WebApp` project, please check the `global-context.service.ts` file in the `Presentation\EmployeePayslipCalculator.WebApp\src\app\services\global-context` folder.
 
 For `EmployeePayslipCalculator.MobileApp` project, please check the `global-context.service.ts` file in the `Presentation\EmployeePayslipCalculator.MobileApp\src\providers\global-context` folder.
 
-For `EmployeePayslipCalculator.WPFApp` project, you can modify the server url in the `App.config`.
+For `EmployeePayslipCalculator.WPFApp` project, you can modify the server URL in the `App.config`.
 
 ## Domain
 
@@ -132,7 +132,7 @@ The `Domain` folder contains the core models and business logic.
 
 ### Models
 
-`EmployeePayslipCalculator.Models` project is a very simple project. According to the requirement, I use the `EmployeeInfo` class to indicate the Employee model, and the `PayslipInfo` to represent the Payslip model. I also create the `ResponseResult` class to encapsulate the response of the web api.
+`EmployeePayslipCalculator.Models` project is a very simple project. According to the requirement, I use the `EmployeeInfo` class to indicate the Employee model, and the `PayslipInfo` to represent the Payslip model. I also create the `ResponseResult` class to encapsulate the response of the Web API.
 
 ### Service
 
@@ -153,7 +153,7 @@ There is another thing to note. When I convert a double value to the int value, 
 
 I prefer to use `int.TryParse()` method because it is more safe than `int.Parse()`.
 
-To make the programe more robust, I also add some code for checking the value. If the param value is illegal, the service will throw an exception, then the caller will catch the exception and deal with it.
+To make the program more robust, I also add some code for checking the value. If the param value is illegal, the service will throw an exception, then the caller will catch the exception and deal with it.
 
 In the service code, I implement two methods to calculate a single employee and an employees list. So it makes the service more flexible.
 
@@ -165,7 +165,7 @@ In fact, I found a mistake by testing in my development process, since I typed a
 
 This folder contains two projects. 
 
-`EmployeePayslipCalculator.WebApi` is an ASP.NET Core project. It exposes a web api to the callers. Any clients can use this api through the HTTP protocol. This architecture is more and more popular in modern software development.
+`EmployeePayslipCalculator.WebApi` is an ASP.NET Core project. It exposes a We b API to the callers. Any clients can use this API through the HTTP protocol. This architecture is more and more popular in modern software development.
 
 First, I use this code shown below to register an instance of `PayslipCalculatorService` in the `ConfigureServices` method of `Startup` class:
 
@@ -199,19 +199,19 @@ Another Action is for batch calculation:
         {
 ```
 
-I use `EmployeePayslipCalculator.WebApi.Test` project to test the api. By comparison to the `EmployeePayslipCalculator.Service.Test` project, I use Microsoft Test Framework to do the test. They have many similarities and all of them are easy to use.
+I use `EmployeePayslipCalculator.WebApi.Test` project to test the API. By comparison to the `EmployeePayslipCalculator.Service.Test` project, I use Microsoft Test Framework to do the test. They have many similarities and all of them are easy to use.
 
-In our real projects, we should use the log system for the api. But this is just a demo, so I did not use the log. If the burden of the api become heavier, we should scale up or scale out the api to face a great many requests. We can also use the MQ, such as RabbitMQ, to improve the reliability of the api.
+In our real projects, we should use the log system for the API. But this is just a demo, so I did not use the log. If the burden of the API become heavier, we should scale up or scale out the API to face a great many requests. We can also use the MQ, such as RabbitMQ, to improve the reliability of the API.
 
 ## Presentation
 
-I would like to use some different client apps to call the api, including the web app, mobile app, and the WPF app.
+I would like to use some different client apps to call the API, including the web app, mobile app, and the WPF app.
 
 ### Web App
 
-`EmployeePayslipCalculator.WebApp` is an Angular project. I preter to use Angular and TypeScript since they are efficient.
+`EmployeePayslipCalculator.WebApp` is an Angular project. I prefer to use Angular and TypeScript since they are efficient.
 
-An Angular app must have some reasonable layers design. I create a service named `HttpClientService` to encapsulate the HTTP api of Angular. So I can easily get a response model from the api. The main service is the `CalculatorService` class. It is very simple that just contains a few codes.
+An Angular app must have some reasonable layers design. I create a service named `HttpClientService` to encapsulate the HTTP API of Angular. So I can easily get a response model from the API. The main service is the `CalculatorService` class. It is very simple that just contains a few codes.
 
 The challenge for the front-end app is dealing with the inputs from the users. That is a crucial factor to determine whether the app is robust. I create a single method named `checkInput()` to check the values except for the validators of ngForm.
 
@@ -225,7 +225,7 @@ You can compile it for different platforms, including iOS, Android, UWP, or just
 
 ### WPF App
 
-To demonstrate how to calculate the result from the excel file, I also create a WPF application named `EmployeePayslipCalculator.WPFApp`. I use MVVMSidekick to implement the MVVM pattern. I want to show how to read an excel file to get the source data, and calculate the result from the local codes and the web api.
+To demonstrate how to calculate the result from the excel file, I also create a WPF application named `EmployeePayslipCalculator.WPFApp`. I use MVVMSidekick to implement the MVVM pattern. I want to show how to read an excel file to get the source data and calculate the result from the local codes and the Web API.
 
 First, you need to select the path of the excel file, which must follow the format of the template file that is in the Template folder. Do not modify the format of the excel file, otherwise, you will not get the correct result. You are allowed to input a lot of employees in the excel file. But in fact, we should set a limit. I did not do it since it is just a demo.
 
@@ -239,7 +239,7 @@ To deal with the excel file, I use NPOI.NET to read and write the excel files. I
 
  You can see two buttons here. The first button is responsible for calculating the result through the `EmployeePayslipCalculator.Service` project. That is similar with the `EmployeePayslipCalculator.WebApi` project.
 
-The second button can get the result through the web api, which must be run first. I write the `WebApiService` class to simplify the use of the HttpClient, which can directly get the result as the correct type. The generic type is necessary for this requirement. I use JSON.NET to parse the json object.
+The second button can get the result through the Web API, which must be run first. I write the `WebApiService` class to simplify the use of the HttpClient, which can directly get the result as the correct type. The generic type is necessary for this requirement. I use JSON.NET to parse the JSON object.
 
 ## Summary
 
@@ -247,11 +247,11 @@ This demo is not a difficult problem to solve but I must be careful to make a be
 
 The unit test can confirm our code can run the way as we expect. They also reduce the risk for the changing and refactoring. I just write some simple unit tests for the services project because this is a demo. In fact, TDD is widely used in modern software development. Maybe we need much time at the beginning, but it is worth to do it.
 
-We also need to make our application more beautiful and friendly. You can see that I use several different UI frameworks for different applications. For simplify the operations for the users, I should choose the suitable controls. User experience is more and more important nowadays. Fortunately, we have a lot of libraries and framework to help us.
+We also need to make our application more beautiful and friendly. You can see that I use several different UI frameworks for different applications. For simplify the operations for the users, I should choose the suitable controls. User experience is more and more important nowadays. Fortunately, we have a lot of libraries and frameworks to help us.
 
-Another important factor is that make sure our apps can handle all potential wrong inputs from the users. To gain this goal, we must check all params from the users, and throw messages to let the users to know what wrong happen. The explicit toast is neccesary for the client users.
+Another important factor is that make sure our apps can handle all potential wrong inputs from the users. To gain this goal, we must check all params from the users, and throw messages to let the users know what wrong happen. The explicit toast is necessary for the client users.
 
-I think this demo is a clean code, and it is easy to understand, and has a reasonable architecture. Anyway, I should do more jobs to make it to be a excellent app to solve the problem, but I am too busy these days. If you have any questions about this demo, let me know please.
+I think this demo is a clean code, and it is easy to understand and has a reasonable architecture. Anyway, I should do more jobs to make it be an excellent app to solve the problem, but I am too busy these days. If you have any questions about this demo, let me know, please.
 
 Thank you very much.
 
