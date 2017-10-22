@@ -167,7 +167,7 @@ This folder contains two projects.
 
 `EmployeePayslipCalculator.WebApi` is an ASP.NET Core project. It exposes a web api to the callers. Any clients can use this api through the HTTP protocol. This architecture is more and more popular in modern software development.
 
-First, I use this code shown below to inject an instance of `PayslipCalculatorService` in the `ConfigureServices` method of `Startup` class:
+First, I use this code shown below to register an instance of `PayslipCalculatorService` in the `ConfigureServices` method of `Startup` class:
 
 `services.AddSingleton(typeof(PayslipCalculatorService), new PayslipCalculatorService());
 `
