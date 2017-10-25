@@ -24,7 +24,8 @@ var GlobalContextService = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         /**API url */
-        this.server = 'http://localhost:58258/api/';
+        // public server = 'http://localhost:58258/api/';//
+        this.server = 'http://employeepayslipcalculatorwebapi.azurewebsites.net/api/';
         console.log('Hello UiServiceProvider Provider');
     }
     GlobalContextService.prototype.showToast = function (message) {

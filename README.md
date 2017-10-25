@@ -16,6 +16,12 @@ Employee Payslip Calculator demo. It shows how to implement a Web API to calcula
     * EmployeePayslipCalculator.MobileApp
     * EmployeePayslipCalculator.WPFApp
 
+I have deployed the Angular App and the Mobile App to the Azure:
+
+* [Angular App](http://employeepayslipcalculatorangularapp.azurewebsites.net)
+* [Mobile App](http://employeepayslipcalculatormobileapp.azurewebsites.net/)
+
+
 According to the requirements, I need to calculate the employee salary by different rates. The core function for this goal is not very difficult, and I should use a simple factory to create different `TaxCalculator` class instances. But I would like to simulate the reality so I developed a Web API based on the `Service` project. So I can use different clients, including the web app, the mobile app, and the WPF app, to call the WEB API. In the same time, I must make sure all the codes to be robust, and have the ability to deal with any wrong inputs. I need test projects, and validate all the input value from the user. From my perspective, this demo should demonstrate some main coding principles, such as:
 
 * Abstraction
