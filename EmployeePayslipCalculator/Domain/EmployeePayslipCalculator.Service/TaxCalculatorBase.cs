@@ -7,16 +7,13 @@ namespace EmployeePayslipCalculator.Service
 {
     public abstract class TaxCalculatorBase
     {
-        public int AnnualSalary { get; set; }
+        protected int AnnualSalary { get; set; }
 
-        public TaxCalculatorBase() { }
         public TaxCalculatorBase(int annualSalary)
         {
             this.AnnualSalary = annualSalary;
         }
-        public virtual int CalculateTax()
-        {
-            return 0;
-        }
+        public abstract int CalculateTax();
+
     }
 }

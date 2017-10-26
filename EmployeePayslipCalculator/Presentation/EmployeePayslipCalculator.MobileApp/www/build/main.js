@@ -6,7 +6,7 @@ webpackJsonp([0],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalContextService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -24,7 +24,8 @@ var GlobalContextService = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         /**API url */
-        this.server = 'http://localhost:58258/api/';
+        // public server = 'http://localhost:58258/api/';//
+        this.server = 'http://employeepayslipcalculatorwebapi.azurewebsites.net/api/';
         console.log('Hello UiServiceProvider Provider');
     }
     GlobalContextService.prototype.showToast = function (message) {
@@ -84,7 +85,53 @@ webpackEmptyAsyncContext.id = 108;
 
 /***/ }),
 
-/***/ 150:
+/***/ 109:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShowResultPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the ShowResultPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ShowResultPage = (function () {
+    function ShowResultPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.payslipInfo = navParams.data;
+    }
+    ShowResultPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ShowResultPage');
+    };
+    return ShowResultPage;
+}());
+ShowResultPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-show-result',template:/*ion-inline-start:"E:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\show-result\show-result.html"*/'<!--\n\n  Generated template for the ShowResultPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n    <ion-navbar>\n\n        <ion-title>Employee Salary</ion-title>\n\n    </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n    <ion-list>\n\n        <ion-item>\n\n            <ion-label>Full Name</ion-label>\n\n            <span item-right>{{payslipInfo?.employee.fullName}}</span>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label>Pay Period</ion-label>\n\n            <span item-right>{{payslipInfo?.payPeriod}}</span>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label>Gross Income</ion-label>\n\n            <span item-right>{{payslipInfo?.grossIncome}}</span>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label>Income Tax</ion-label>\n\n            <span item-right>{{payslipInfo?.incomeTax}}</span>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label>Net Income</ion-label>\n\n            <span item-right>{{payslipInfo?.netIncome}}</span>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label>Super</ion-label>\n\n            <span item-right>{{payslipInfo?.super}}</span>\n\n        </ion-item>\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"E:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\show-result\show-result.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+], ShowResultPage);
+
+//# sourceMappingURL=show-result.js.map
+
+/***/ }),
+
+/***/ 151:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -97,19 +144,19 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 150;
+webpackEmptyAsyncContext.id = 151;
 
 /***/ }),
 
-/***/ 195:
+/***/ 197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about_about__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_contact__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about_about__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_contact__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(200);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -132,7 +179,7 @@ var TabsPage = (function () {
     return TabsPage;
 }());
 TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\tabs\tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\tabs\tabs.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"E:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\tabs\tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>\n\n  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"E:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\tabs\tabs.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], TabsPage);
@@ -141,13 +188,13 @@ TabsPage = __decorate([
 
 /***/ }),
 
-/***/ 196:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -167,7 +214,7 @@ var AboutPage = (function () {
 }());
 AboutPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-about',template:/*ion-inline-start:"E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\about\about.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            About\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <p>This is a code sample to show how to implement a cordova app with Ionic Framework.</p>\n    <p>Please install Ionic and Cordova first.</p>\n</ion-content>'/*ion-inline-end:"E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\about\about.html"*/
+        selector: 'page-about',template:/*ion-inline-start:"E:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\about\about.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>\n\n            About\n\n        </ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n    <p>This is a code sample to show how to implement a cordova app to call the web api with Ionic Framework.</p>\n\n    <p>Please install Ionic and Cordova first.</p>\n\n</ion-content>'/*ion-inline-end:"E:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\about\about.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], AboutPage);
@@ -176,13 +223,13 @@ AboutPage = __decorate([
 
 /***/ }),
 
-/***/ 197:
+/***/ 199:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -202,7 +249,7 @@ var ContactPage = (function () {
 }());
 ContactPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-contact',template:/*ion-inline-start:"E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\contact\contact.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Contact\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-list>\n        <ion-list-header>Contact Me</ion-list-header>\n        <ion-item>\n            <ion-icon name="ionic" item-start></ion-icon>\n            yan_xiaodi@hotmail.com\n        </ion-item>\n    </ion-list>\n    <p padding>\n        Currently seeking a role in a well­organized software development team.\n    </p>\n    <p padding>\n        Passionate and professional developer with an abundance of strong knowledge about .NET platform as well as enthusiasm for the new technologies and create the readable, flexible, and maintainable code. Professional coding specification and very pleased\n        to share experiences. Excellent self-management ability and collaborative personality. Positive attitude for learning new development technologies.\n    </p>\n</ion-content>'/*ion-inline-end:"E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\contact\contact.html"*/
+        selector: 'page-contact',template:/*ion-inline-start:"E:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\contact\contact.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>\n\n            Contact\n\n        </ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n    <ion-list>\n\n        <ion-list-header>Contact Me</ion-list-header>\n\n        <ion-item>\n\n            <ion-icon name="contact" item-start></ion-icon>\n\n            Yan Xiaodi\n\n            <span item-right>Microsoft MVP</span>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-icon name="at" item-start></ion-icon>\n\n            yan_xiaodi@hotmail.com\n\n        </ion-item>\n\n    </ion-list>\n\n    <p padding>\n\n        Currently seeking a role in a well-­organized software development team.\n\n    </p>\n\n    <p padding>\n\n        Passionate and professional developer with an abundance of strong knowledge about .NET platform as well as enthusiasm for the new technologies. Love to create the readable, flexible, and maintainable code. Professional coding specification and very pleased\n\n        to share experiences. Excellent self-management ability and collaborative personality. Positive attitude for learning new development technologies.\n\n    </p>\n\n</ion-content>'/*ion-inline-end:"E:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\contact\contact.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], ContactPage);
@@ -211,16 +258,16 @@ ContactPage = __decorate([
 
 /***/ }),
 
-/***/ 198:
+/***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__show_result_show_result__ = __webpack_require__(293);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers___ = __webpack_require__(289);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__show_result_show_result__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers___ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models__ = __webpack_require__(271);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -365,24 +412,40 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\home\home.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>Home</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <h2 padding>Welcome to Employee Salary Calculator!</h2>\n    <form #mainForm="ngForm" novalidate>\n        <ion-list>\n\n            <ion-item>\n                <ion-label floating>First Name</ion-label>\n                <ion-input type="text" [(ngModel)]="employee.firstName" name="firstNameControl" #firstNameControl="ngModel" required></ion-input>\n            </ion-item>\n            <p ion-text [hidden]="firstNameControl.valid || submitted == false" color="danger" padding-left>\n                Please input the first name.\n            </p>\n            <ion-item>\n                <ion-label floating>Last Name</ion-label>\n                <ion-input type="text" [(ngModel)]="employee.lastName" name="lastNameControl" #lastNameControl="ngModel" required></ion-input>\n            </ion-item>\n            <p ion-text [hidden]="lastNameControl.valid || submitted == false" color="danger" padding-left>\n                Please input the last name.\n            </p>\n            <ion-item>\n                <ion-label floating>Annual Salary</ion-label>\n                <ion-input type="text" [(ngModel)]="employee.annualSalary" name="annualSalaryControl" #annualSalaryControl="ngModel" required></ion-input>\n            </ion-item>\n            <p ion-text [hidden]="annualSalaryControl.valid || submitted == false" color="danger" padding-left>\n                Please input the annual salary.\n            </p>\n            <ion-item>\n                <ion-label floating>Super Rate (%)</ion-label>\n                <ion-input type="text" [(ngModel)]="superRate" name="superRateControl" #superRateControl="ngModel" required></ion-input>\n            </ion-item>\n            <p ion-text [hidden]="superRateControl.valid || submitted == false" color="danger" padding-left>\n                Please input the super rate.\n            </p>\n            <ion-item>\n                <ion-label>Month</ion-label>\n                <ion-select [(ngModel)]="selectedMonth" name="monthControl" #monthControl="ngModel" required>\n                    <ion-option *ngFor="let item of months" value="{{item.value}}">{{item.label}}</ion-option>\n                </ion-select>\n            </ion-item>\n            <div padding>\n                <button ion-button block (click)="calculate(mainForm)">Calculate</button>\n            </div>\n        </ion-list>\n    </form>\n</ion-content>'/*ion-inline-end:"E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\home\home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"E:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\home\home.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>Home</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n    <h2 padding>Welcome to Employee Salary Calculator!</h2>\n\n    <form #mainForm="ngForm" novalidate>\n\n        <ion-list>\n\n\n\n            <ion-item>\n\n                <ion-label floating>First Name</ion-label>\n\n                <ion-input type="text" [(ngModel)]="employee.firstName" name="firstNameControl" #firstNameControl="ngModel" required></ion-input>\n\n            </ion-item>\n\n            <p ion-text [hidden]="firstNameControl.valid || submitted == false" color="danger" padding-left>\n\n                Please input the first name.\n\n            </p>\n\n            <ion-item>\n\n                <ion-label floating>Last Name</ion-label>\n\n                <ion-input type="text" [(ngModel)]="employee.lastName" name="lastNameControl" #lastNameControl="ngModel" required></ion-input>\n\n            </ion-item>\n\n            <p ion-text [hidden]="lastNameControl.valid || submitted == false" color="danger" padding-left>\n\n                Please input the last name.\n\n            </p>\n\n            <ion-item>\n\n                <ion-label floating>Annual Salary</ion-label>\n\n                <ion-input type="text" [(ngModel)]="employee.annualSalary" name="annualSalaryControl" #annualSalaryControl="ngModel" required></ion-input>\n\n            </ion-item>\n\n            <p ion-text [hidden]="annualSalaryControl.valid || submitted == false" color="danger" padding-left>\n\n                Please input the annual salary.\n\n            </p>\n\n            <ion-item>\n\n                <ion-label floating>Super Rate (%)</ion-label>\n\n                <ion-input type="text" [(ngModel)]="superRate" name="superRateControl" #superRateControl="ngModel" required></ion-input>\n\n            </ion-item>\n\n            <p ion-text [hidden]="superRateControl.valid || submitted == false" color="danger" padding-left>\n\n                Please input the super rate.\n\n            </p>\n\n            <ion-item>\n\n                <ion-label>Month</ion-label>\n\n                <ion-select [(ngModel)]="selectedMonth" name="monthControl" #monthControl="ngModel" required>\n\n                    <ion-option *ngFor="let item of months" value="{{item.value}}">{{item.label}}</ion-option>\n\n                </ion-select>\n\n            </ion-item>\n\n            <div padding>\n\n                <button ion-button block (click)="calculate(mainForm)">Calculate</button>\n\n            </div>\n\n        </ion-list>\n\n    </form>\n\n</ion-content>'/*ion-inline-end:"E:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\home\home.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__providers___["b" /* GlobalContextService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers___["b" /* GlobalContextService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__providers___["a" /* CalculatorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers___["a" /* CalculatorService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1__providers___["b" /* GlobalContextService */], __WEBPACK_IMPORTED_MODULE_1__providers___["a" /* CalculatorService */]])
 ], HomePage);
 
-var _a, _b, _c;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
 
-/***/ 199:
+/***/ 201:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__calculator_calculator_service__ = __webpack_require__(270);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__calculator_calculator_service__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__global_context_global_context_service__ = __webpack_require__(100);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__global_context_global_context_service__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_client_http_client_service__ = __webpack_require__(202);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__http_client_http_client_service__["a"]; });
+
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 202:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HttpClientService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__global_context_global_context_service__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(191);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -425,13 +488,13 @@ HttpClientService = __decorate([
 
 /***/ }),
 
-/***/ 200:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(219);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(222);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -439,24 +502,24 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 219:
+/***/ 222:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_show_result_show_result__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_show_result_show_result__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(291);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_about_about__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_contact_contact__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_tabs_tabs__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers___ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_about_about__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_contact_contact__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_tabs_tabs__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers___ = __webpack_require__(201);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -522,17 +585,17 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 259:
+/***/ 262:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__rxjs_operators__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__rxjs_operators__ = __webpack_require__(275);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -562,7 +625,7 @@ var MyApp = (function () {
     return MyApp;
 }());
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\app\app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"E:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"E:\Source\Repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\app\app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
@@ -571,144 +634,12 @@ MyApp = __decorate([
 
 /***/ }),
 
-/***/ 267:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__responseResult__ = __webpack_require__(268);
-/* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__employeeInfo__ = __webpack_require__(269);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__employeeInfo__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__payslipInfo__ = __webpack_require__(270);
-/* unused harmony namespace reexport */
-
-
-
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ 268:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export ResponseResultBase */
-/* unused harmony export ResponseResult */
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var ResponseResultBase = (function () {
-    function ResponseResultBase() {
-    }
-    return ResponseResultBase;
-}());
-
-var ResponseResult = (function (_super) {
-    __extends(ResponseResult, _super);
-    function ResponseResult() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return ResponseResult;
-}(ResponseResultBase));
-
-//# sourceMappingURL=responseResult.js.map
-
-/***/ }),
-
-/***/ 269:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmployeeInfo; });
-var EmployeeInfo = (function () {
-    function EmployeeInfo() {
-    }
-    return EmployeeInfo;
-}());
-
-//# sourceMappingURL=employeeInfo.js.map
-
-/***/ }),
-
 /***/ 270:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export PayslipInfo */
-var PayslipInfo = (function () {
-    function PayslipInfo() {
-    }
-    return PayslipInfo;
-}());
-
-//# sourceMappingURL=payslipInfo.js.map
-
-/***/ }),
-
-/***/ 271:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(273);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(282);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__ = __webpack_require__(285);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__ = __webpack_require__(287);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__);
-// import 'rxjs/Rx'; // adds ALL RxJS statics & operators to Observable
-// See node_module/rxjs/Rxjs.js
-// Import just the rxjs statics and operators we need for THIS app.
-// Statics
-
-// Operators
-
-
-
-
-
-
-//# sourceMappingURL=rxjs-operators.js.map
-
-/***/ }),
-
-/***/ 289:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__calculator_calculator_service__ = __webpack_require__(290);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__calculator_calculator_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__global_context_global_context_service__ = __webpack_require__(100);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__global_context_global_context_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_client_http_client_service__ = __webpack_require__(199);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__http_client_http_client_service__["a"]; });
-
-
-
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ 290:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalculatorService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_client_http_client_service__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_client_http_client_service__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__global_context_global_context_service__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -787,52 +718,120 @@ CalculatorService = __decorate([
 
 /***/ }),
 
-/***/ 293:
+/***/ 271:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShowResultPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__responseResult__ = __webpack_require__(272);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__employeeInfo__ = __webpack_require__(273);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__employeeInfo__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__payslipInfo__ = __webpack_require__(274);
+/* unused harmony namespace reexport */
 
 
-/**
- * Generated class for the ShowResultPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var ShowResultPage = (function () {
-    function ShowResultPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.payslipInfo = navParams.data;
-    }
-    ShowResultPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ShowResultPage');
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 272:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export ResponseResultBase */
+/* unused harmony export ResponseResult */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    return ShowResultPage;
+})();
+var ResponseResultBase = (function () {
+    function ResponseResultBase() {
+    }
+    return ResponseResultBase;
 }());
-ShowResultPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-show-result',template:/*ion-inline-start:"E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\show-result\show-result.html"*/'<!--\n  Generated template for the ShowResultPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n        <ion-title>Employee Salary</ion-title>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    <ion-list>\n        <ion-item>\n            <ion-label>Full Name</ion-label>\n            <span item-right>{{payslipInfo?.employee.fullName}}</span>\n        </ion-item>\n        <ion-item>\n            <ion-label>Pay Period</ion-label>\n            <span item-right>{{payslipInfo?.payPeriod}}</span>\n        </ion-item>\n        <ion-item>\n            <ion-label>Gross Income</ion-label>\n            <span item-right>{{payslipInfo?.grossIncome}}</span>\n        </ion-item>\n        <ion-item>\n            <ion-label>Income Tax</ion-label>\n            <span item-right>{{payslipInfo?.incomeTax}}</span>\n        </ion-item>\n        <ion-item>\n            <ion-label>Net Income</ion-label>\n            <span item-right>{{payslipInfo?.netIncome}}</span>\n        </ion-item>\n        <ion-item>\n            <ion-label>Super</ion-label>\n            <span item-right>{{payslipInfo?.super}}</span>\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\source\repos\yxd\EmployeePayslipCalculator\EmployeePayslipCalculator\Presentation\EmployeePayslipCalculator.MobileApp\src\pages\show-result\show-result.html"*/,
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
-], ShowResultPage);
 
-var _a, _b;
-//# sourceMappingURL=show-result.js.map
+var ResponseResult = (function (_super) {
+    __extends(ResponseResult, _super);
+    function ResponseResult() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return ResponseResult;
+}(ResponseResultBase));
+
+//# sourceMappingURL=responseResult.js.map
+
+/***/ }),
+
+/***/ 273:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmployeeInfo; });
+var EmployeeInfo = (function () {
+    function EmployeeInfo() {
+    }
+    return EmployeeInfo;
+}());
+
+//# sourceMappingURL=employeeInfo.js.map
+
+/***/ }),
+
+/***/ 274:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export PayslipInfo */
+var PayslipInfo = (function () {
+    function PayslipInfo() {
+    }
+    return PayslipInfo;
+}());
+
+//# sourceMappingURL=payslipInfo.js.map
+
+/***/ }),
+
+/***/ 275:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__);
+// import 'rxjs/Rx'; // adds ALL RxJS statics & operators to Observable
+// See node_module/rxjs/Rxjs.js
+// Import just the rxjs statics and operators we need for THIS app.
+// Statics
+
+// Operators
+
+
+
+
+
+
+//# sourceMappingURL=rxjs-operators.js.map
 
 /***/ })
 
-},[200]);
+},[203]);
 //# sourceMappingURL=main.js.map

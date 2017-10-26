@@ -4,7 +4,8 @@ import { ToastController, LoadingController, AlertController, Loading, Alert, To
 @Injectable()
 export class GlobalContextService {
   /**API url */
-  public server = 'http://localhost:58258/api/';
+  // public server = 'http://localhost:58258/api/';//
+  public server = 'http://employeepayslipcalculatorwebapi.azurewebsites.net/api/';
 
 
 

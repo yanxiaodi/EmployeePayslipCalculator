@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{C402EF12-1B80-49E1-9E21-5AAF353C3588}"
 EndProject
@@ -41,6 +41,28 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayslipCalculator.WebApi", "Service\EmployeePayslipCalculator.WebApi\EmployeePayslipCalculator.WebApi.csproj", "{DBE0AFCE-D53C-47D7-8011-548385EB07CF}"
 EndProject
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "EmployeePayslipCalculator.MobileApp", "Presentation\EmployeePayslipCalculator.MobileApp\EmployeePayslipCalculator.MobileApp.jsproj", "{7A8A6C8B-A1E3-465F-BE23-655CFBAB7852}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayslipCalculator.WPFApp", "Presentation\EmployeePayslipCalculator.WPFApp\EmployeePayslipCalculator.WPFApp.csproj", "{74B6B964-AE82-42E5-A295-BD69F51A0BE1}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "www", "Presentation\EmployeePayslipCalculator.MobileApp\www\", "{0D6FEACC-250C-438B-B1E9-E42223626493}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_53323"
+		Debug.AspNetCompiler.PhysicalPath = "Presentation\EmployeePayslipCalculator.MobileApp\www\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53323\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_53323"
+		Release.AspNetCompiler.PhysicalPath = "Presentation\EmployeePayslipCalculator.MobileApp\www\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53323\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53323"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -234,6 +256,54 @@ Global
 		{7A8A6C8B-A1E3-465F-BE23-655CFBAB7852}.Release|Windows-x86.ActiveCfg = Release|Windows-x86
 		{7A8A6C8B-A1E3-465F-BE23-655CFBAB7852}.Release|Windows-x86.Build.0 = Release|Windows-x86
 		{7A8A6C8B-A1E3-465F-BE23-655CFBAB7852}.Release|Windows-x86.Deploy.0 = Release|Windows-x86
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Debug|Android.ActiveCfg = Debug|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Debug|Android.Build.0 = Debug|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Debug|iOS.ActiveCfg = Debug|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Debug|iOS.Build.0 = Debug|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Debug|Windows-ARM.ActiveCfg = Debug|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Debug|Windows-ARM.Build.0 = Debug|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Debug|Windows-x64.ActiveCfg = Debug|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Debug|Windows-x64.Build.0 = Debug|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Debug|Windows-x86.ActiveCfg = Debug|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Debug|Windows-x86.Build.0 = Debug|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Release|Android.ActiveCfg = Release|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Release|Android.Build.0 = Release|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Release|iOS.ActiveCfg = Release|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Release|iOS.Build.0 = Release|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Release|Windows-ARM.ActiveCfg = Release|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Release|Windows-ARM.Build.0 = Release|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Release|Windows-x64.ActiveCfg = Release|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Release|Windows-x64.Build.0 = Release|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Release|Windows-x86.ActiveCfg = Release|Any CPU
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1}.Release|Windows-x86.Build.0 = Release|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Debug|Android.ActiveCfg = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Debug|Android.Build.0 = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Debug|iOS.ActiveCfg = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Debug|iOS.Build.0 = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Debug|Windows-ARM.ActiveCfg = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Debug|Windows-ARM.Build.0 = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Debug|Windows-x64.ActiveCfg = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Debug|Windows-x64.Build.0 = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Debug|Windows-x86.ActiveCfg = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Debug|Windows-x86.Build.0 = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Release|Android.ActiveCfg = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Release|Android.Build.0 = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Release|iOS.ActiveCfg = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Release|iOS.Build.0 = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Release|Windows-ARM.ActiveCfg = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Release|Windows-ARM.Build.0 = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Release|Windows-x64.ActiveCfg = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Release|Windows-x64.Build.0 = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Release|Windows-x86.ActiveCfg = Debug|Any CPU
+		{0D6FEACC-250C-438B-B1E9-E42223626493}.Release|Windows-x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -246,6 +316,8 @@ Global
 		{4ACCDE82-2560-4977-BEF6-4B48156DA9FF} = {C402EF12-1B80-49E1-9E21-5AAF353C3588}
 		{DBE0AFCE-D53C-47D7-8011-548385EB07CF} = {2B0A8219-EA81-4C83-BA78-8A473C17DD96}
 		{7A8A6C8B-A1E3-465F-BE23-655CFBAB7852} = {4F569D42-B9A5-4846-A7B1-6C7EFECD0DFA}
+		{74B6B964-AE82-42E5-A295-BD69F51A0BE1} = {4F569D42-B9A5-4846-A7B1-6C7EFECD0DFA}
+		{0D6FEACC-250C-438B-B1E9-E42223626493} = {4F569D42-B9A5-4846-A7B1-6C7EFECD0DFA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {004FD83A-8580-43C0-8D27-F4FAD26D3022}
